@@ -1,5 +1,6 @@
-import Home from "../pages/Home";
+import AppRouter from "../components/AppRouter";
+import Container from "../pages/Container";
 
 export const routes = [
-    {path:'*', Element: Home},
+    {path:'*', Element: Container},
 ];
