@@ -2,9 +2,8 @@ import React from 'react'
 
 const ChatRoomList = ({rooms, remove, title }) => {
 
-    console.log(rooms);
 
-    if(!rooms.length){
+    if(!rooms){
         return(
             <h1>Начни чат какой-нибудь</h1>
         )
@@ -14,7 +13,7 @@ const ChatRoomList = ({rooms, remove, title }) => {
         <div>
             <h1>{title}</h1>
             {rooms.map((room,index) => 
-                <h1 key={room}>{}{room.userId}{room.title}</h1>
+                <h1 key={index}>{room.userId}{room.title}</h1>
             )}
         </div>
     )
