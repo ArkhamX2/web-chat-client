@@ -40,7 +40,6 @@ You may also see any lint errors in the console.
 
 ## Documentation
 
-- [Backend](https://github.com/ArkhamX2/chatroll_server)
 - [Backend](https://github.com/ArkhamX2/web-chat)
 
 ## Developers
