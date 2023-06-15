@@ -52,4 +52,5 @@ You may also see any lint errors in the console.
 - [M.Aleksandrova](https://github.com/S1stemus) | QA
 
 ## License
-Проект Webchat распространяется по лицезии Apache 2.0
+Проект Webchat распространяется по лицезии MIT
+
