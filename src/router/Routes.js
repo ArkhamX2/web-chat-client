@@ -1,6 +1,16 @@
-import AppRouter from "../components/AppRouter";
-import Container from "../pages/Container";
+import ChatRoom from "../components/ChatRoom";
+import Profile from "../pages/Profile";
+import Rooms from "../pages/Rooms";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
-export const routes = [
-    {path:'*', Element: Container},
+export const privateRoutes = [
+    {path:'/profile', Element: Profile},
+    {path:'/rooms', Element: Rooms},
+    {path:'/rooms/:id', Element: ChatRoom},
+];
+
+export const publicRoutes = [
+    {path:'/login', Element: Login},
+    {path:'/register', Element: Register},
 ];
