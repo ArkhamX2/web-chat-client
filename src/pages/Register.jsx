@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import axios from 'axios'
 import axiosConfig from '../API/axiosConfig'
 import validator from 'validator'
 

@@ -13,7 +13,7 @@ const ChatRoomList = ({rooms, remove, title }) => {
         <div>
             <h1>{title}</h1>
             {rooms.map((room,index) => 
-                <h1 key={index}>{room.userId}{room.title}</h1>
+                <h1 key={index}>{room.userId}{room.userName}</h1>
             )}
         </div>
     )

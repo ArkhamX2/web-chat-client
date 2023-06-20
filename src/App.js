@@ -7,7 +7,7 @@ import AppRouter from "./components/AppRouter";
 import { AuthContext } from "./context";
 
 function App() {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(true);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(()=>{

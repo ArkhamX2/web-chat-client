@@ -1,9 +1,9 @@
-import axios from "axios";
+import axiosConfig from '../API/axiosConfig'
 
-export default class PostService{
+export default class RoomsService{
 
     static async getAll(limit = 10, page=1){
-        const responce = await axios.get("localhost:8888/web-chat-0.0.4-SNAPSHOT/security/register",{
+        const responce = await axiosConfig.get("/security/rooms",{
             params:{
                 _limit: limit,
                 _page: page
