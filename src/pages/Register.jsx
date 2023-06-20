@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import axiosConfig from '../API/axiosConfig'
 import validator from 'validator'
 
 const Register = () => {
@@ -37,7 +38,7 @@ const Register = () => {
         else{
 
             //Пост запрос c данными, введёнными пользователем
-            axios.post("/auth/registration/",{
+            axiosConfig.post("/security/register/",{
                  username: register.username,
                  email: register.email,
                  password: register.password,
@@ -46,7 +47,7 @@ const Register = () => {
                      window.location.href = "/login"    //Переход на страницу после регистрации/ входа
                  } 
                  else{ 
-                     alert("Существует пользователь с такой почтой")
+                     alert("Уже существует пользователь с такой почтой")
                  }
             }).catch (()=>{
                  alert("Ошибка на сервере")
