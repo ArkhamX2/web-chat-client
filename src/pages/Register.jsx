@@ -35,22 +35,22 @@ const Register = () => {
             alert("пароль должен содержать хотя бы одну заглавную, строчную букву, цифру и состоять не менее чем из 8 символов")
         }
         else{
-            window.location.href = "/login"
 
-            // axios.post("/auth/registration/",{
-            //     username: register.username,
-            //     email: register.email,
-            //     password: register.password,
-            // }).then(res =>{
-            //     if(res.data === true){
-            //         window.location.href = "/login"
-            //     } 
-            //     else{
-            //         alert("Существует пользователь с такой почтой")
-            //     }
-            // }).catch (()=>{
-            //     alert("Ошибка на сервере")
-            // })
+            //Пост запрос c данными, введёнными пользователем
+            axios.post("/auth/registration/",{
+                 username: register.username,
+                 email: register.email,
+                 password: register.password,
+            }).then(res =>{     //Обработка ответа от сервера
+                 if(res.data === true){
+                     window.location.href = "/login"    //Переход на страницу после регистрации/ входа
+                 } 
+                 else{ 
+                     alert("Существует пользователь с такой почтой")
+                 }
+            }).catch (()=>{
+                 alert("Ошибка на сервере")
+            })
         }
     }
 
