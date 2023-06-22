@@ -12,4 +12,14 @@ export default class RoomsService{
         return responce;
     }
 
+    static async getById(id){
+        const responce = await axiosConfig.get("/security/rooms/" + id);
+        return responce;
+    }
+
+    static async getMessagesById(id){
+        const responce = await axiosConfig.get(`/security/rooms/${id}/messages`);
+        return responce;
+    }
+
 }

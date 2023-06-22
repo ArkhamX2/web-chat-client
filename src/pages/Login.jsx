@@ -52,7 +52,7 @@ const Login = () => {
 
   return (
     <div className="form">
-        <h2>Register user:</h2>
+        <h2>Login user:</h2>
         <form onSubmit={submitCheck}>
             <p>Name: 
                 <input 

@@ -10,15 +10,15 @@ const Rooms = () => {
   const [limit,setLimit] = useState(10)
   const [page,setPage] = useState(1)
   const [rooms, setRooms] = useState([{
-    userId: 0,
+    id: 0,
     userName: "Bob",
   },
   {
-    userId: 1,
+    id: 1,
     userName: "Tom",
   },
   {
-    userId: 2,
+    id: 2,
     userName: "Kate",
   }]);
 
@@ -34,9 +34,8 @@ const Rooms = () => {
   return (
     <div>
       <Navbar />
-      <h1>Чаты</h1>
       <p>-------------</p>
-      <ChatRoomList rooms={rooms} />
+      <ChatRoomList rooms={rooms} title='Чаты'/>
     </div>
   )
 }
