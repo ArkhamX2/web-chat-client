@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axiosConfig from '../API/axiosConfig'
+import axios from 'axios'
 import validator from 'validator'
 
 const Register = () => {
@@ -36,21 +37,25 @@ const Register = () => {
         }
         else{
 
-            //Пост запрос c данными, введёнными пользователем
-            axiosConfig.post("/security/register/",{
-                 username: register.username,
-                 email: register.email,
-                 password: register.password,
-            }).then(res =>{     //Обработка ответа от сервера
-                 if(res.data === true){
-                     window.location.href = "/login"    //Переход на страницу после регистрации/ входа
-                 } 
-                 else{ 
-                     alert("Уже существует пользователь с такой почтой")
-                 }
-            }).catch (()=>{
-                 alert("Ошибка на сервере")
-            })
+            // //Пост запрос c данными, введёнными пользователем
+            // axios.post("http://localhost:8888/web-chat-0.0.4-SNAPSHOT/security/register",{
+            //      username: register.username,
+            //      password: register.password,
+            //      administration_flag: false,
+            // }).then(res =>{     //Обработка ответа от сервера
+            //      if(res.data === true){
+            //          window.location.href = "/login"    //Переход на страницу после регистрации/ входа
+            //      } 
+            //      else{ 
+            //          alert("Уже существует пользователь с такой почтой")
+            //      }
+            // }).catch (()=>{
+            //      alert("Ошибка на сервере")
+            // })
+
+
+            const responce = axios.get("/security/register")
+            console.log(responce.data);
         }
     }
 
@@ -74,7 +79,7 @@ const Register = () => {
                     name="email"
                     value={register.email}
                     onChange={changeInputRegister}
-                    formnovalidate />
+                    formNoValidate />
             </p>
             <p>Password: 
                 <input 

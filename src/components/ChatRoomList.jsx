@@ -1,4 +1,5 @@
 import React from 'react'
+import ChatRoomListItem from './ChatRoomListItem'
 
 const ChatRoomList = ({rooms, remove, title }) => {
 
@@ -13,7 +14,7 @@ const ChatRoomList = ({rooms, remove, title }) => {
         <div>
             <h1>{title}</h1>
             {rooms.map((room,index) => 
-                <h1 key={index}>{room.userId}{room.userName}</h1>
+                <ChatRoomListItem room = {room} number={index+1} />
             )}
         </div>
     )
