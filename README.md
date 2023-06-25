@@ -3,21 +3,11 @@
 </p>
 <p align="center">
    <img src="https://img.shields.io/badge/React%20ver-16.7-informational" alt="React Version">
-   <img src="https://img.shields.io/badge/Spring%20ver-3.1.0-informational" alt="Spring Version">
    <img src="https://img.shields.io/badge/App%20ver-0.1-blueviolet" alt="App Version">
-   <img src="https://img.shields.io/badge/license-Apache%202.0-green" alt="License">
+   <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
 </p>
 
-## Available Scripts
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-## About
+## Описание
 Репозиторий клиентской части веб-чата Molchat.
 - [MolChat](https://github.com/ArkhamX2/web-chat)
 
@@ -28,3 +18,21 @@ You may also see any lint errors in the console.
 - Typescript
 - Redux, Redux-saga
 - Docker
+
+## Запуск
+### `npm start`
+
+Запустить приложение в режиме разработки.\
+Открыть [http://localhost:3000](http://localhost:3000) для просмотра в браузере.
+
+Это приложение будет перезагружаться при внесении изменений.\
+Также вы можете увидеть любые ошибки линтера в консоли.
+
+### `docker build -t web-chat-client .`
+
+Собрать Docker-образ приложения.
+
+### `docker run -d -p 80:80 web-chat-client`
+
+Запустить Docker-образ приложения.\
+Открыть [http://localhost](http://localhost) для просмотра в браузере.
