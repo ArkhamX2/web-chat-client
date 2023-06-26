@@ -1,5 +1,4 @@
 import { FC, useState } from 'react'
-import { useTypedSelector } from '../hooks/useTypedSelector';
 import { useActions } from '../hooks/useActions';
 
 
@@ -31,6 +30,10 @@ const LoginForm: FC = () => {
 
             <button onClick={() => signup(email, password)} >
                 Зарегистрироваться
+            </button>
+
+            <button onClick={() => logout()}>
+                Выйти
             </button>
         </div>
     )

@@ -29,7 +29,7 @@ RUN npm run build
 FROM nginx:1.17.0-alpine
 
 # Copy the react build from Stage 1
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
 # Expose port 80 to the Docker host, so we can access it 
 # from the outside.
