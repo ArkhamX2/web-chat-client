@@ -25,7 +25,7 @@ export const login = (email: string, password: string): any => {
     return async (dispatch: Dispatch<AuthAction>) => {
         try {
             dispatch({ type: AuthActionTypes.LOGIN_FETCH })
-            const response = await AuthService.signup(email, password)
+            const response = await AuthService.login(email, password)
             console.log(response);
             
             localStorage.setItem('token', response.data.accessToken)
