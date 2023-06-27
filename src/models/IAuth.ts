@@ -15,6 +15,7 @@ export enum AuthActionTypes {
     LOGIN_FETCH = "LOGIN_FETCH",
     LOGIN_FAIL = "LOGIN_FAIL",
     LOGOUT = "LOGOUT",
+    CHECK_AUTH = "CHECK_AUTH",
 }
 
 interface RegisterSuccessAction {
@@ -49,6 +50,11 @@ interface LogoutAction {
     type: AuthActionTypes.LOGOUT
 }
 
+interface CheckAuthAction {
+    type: AuthActionTypes.CHECK_AUTH,
+    payload: boolean,
+}
+
 export type AuthAction = RegisterSuccessAction
     | RegisterFailAction
     | RegisterFetchAction
@@ -56,3 +62,4 @@ export type AuthAction = RegisterSuccessAction
     | LoginFailAction
     | LoginFetchAction
     | LogoutAction
+    | CheckAuthAction

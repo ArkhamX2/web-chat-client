@@ -1,6 +1,9 @@
 import { Dispatch } from "react"
 import { AuthAction, AuthActionTypes } from "../../models/IAuth"
 import AuthService from "../../API/services/AuthService"
+import axios from "axios"
+import { API_URL } from "../../API"
+import { AuthResponse } from "../../models/response/AuthResponse"
 
 export const signup = (email: string, password: string): any => {
     return async (dispatch: Dispatch<AuthAction>) => {
@@ -48,5 +51,20 @@ export const logout = (): any => {
         console.log(response);
         localStorage.removeItem('token')
         dispatch({type: AuthActionTypes.LOGOUT})
+    }
+}
+
+export const checkAuth = ():any => {
+    return async (dispatch: Dispatch<AuthAction>) =>{
+        try {
+            const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true})
+            
+            localStorage.setItem('token', response.data.accessToken)
+            dispatch({ type: AuthActionTypes.LOGIN_SUCCESS, payload: response.data.user })
+
+            return Promise.resolve();
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
