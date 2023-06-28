@@ -11,7 +11,7 @@ export const signup = (name: string, password: string): any => {
             dispatch({ type: AuthActionTypes.REGISTER_FETCH })
             const response = await AuthService.signup(name, password)
             console.log(response);
-            localStorage.setItem('token', response.headers.Authorization)
+            localStorage.setItem('token', response.data.accessToken)
             dispatch({ type: AuthActionTypes.REGISTER_SUCCESS })
 
             return Promise.resolve();
@@ -29,9 +29,10 @@ export const login = (name: string, password: string): any => {
         try {
             dispatch({ type: AuthActionTypes.LOGIN_FETCH })
             const response = await AuthService.login(name, password)
-            console.log(response);
             
-            localStorage.setItem('token', response.headers.Authorization)
+            localStorage.setItem('token', response.data.accessToken)
+
+            console.log(response);
             dispatch({ type: AuthActionTypes.LOGIN_SUCCESS, payload: response.data.user })
 
             return Promise.resolve();

@@ -1,6 +1,7 @@
 import MolchatButton from '../button/MolchatButton'
 import {Link} from "react-router-dom";
 import { useActions } from '../../../hooks/useActions';
+import UserService from '../../../API/services/UserService';
 
 const Navbar = () => {
 
@@ -15,6 +16,12 @@ const Navbar = () => {
                 <Link to="/profile">Профиль пользователя</Link>
                 <Link to="/rooms">Чаты</Link>
             </div>
+            <button
+                onClick={() => {
+                    const response = UserService.fetchUsers();
+                    console.log(response);
+                }}
+            >GET USERS</button>
         </div>
     )
 }
