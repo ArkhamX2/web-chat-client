@@ -11,6 +11,7 @@ export const signup = (name: string, password: string): any => {
             dispatch({ type: AuthActionTypes.REGISTER_FETCH })
             const response = await AuthService.signup(name, password)
             console.log(response);
+            localStorage.setItem('token', response.headers.Authorization)
             dispatch({ type: AuthActionTypes.REGISTER_SUCCESS })
 
             return Promise.resolve();
@@ -30,6 +31,7 @@ export const login = (name: string, password: string): any => {
             const response = await AuthService.login(name, password)
             console.log(response);
             
+            localStorage.setItem('token', response.headers.Authorization)
             dispatch({ type: AuthActionTypes.LOGIN_SUCCESS, payload: response.data.user })
 
             return Promise.resolve();
@@ -47,7 +49,7 @@ export const logout = (): any => {
     return async (dispatch: Dispatch<AuthAction>) => {
         // const response = await AuthService.logout();
         // console.log(response);
-        // localStorage.removeItem('token')
+        localStorage.removeItem('token')
         dispatch({type: AuthActionTypes.LOGOUT})
     }
 }

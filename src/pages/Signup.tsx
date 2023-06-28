@@ -1,8 +1,10 @@
-import {FC} from 'react'
+import SignupForm from "../components/SignupForm"
 
 const Signup = () => {
   return (
-    <div>Signup</div>
+    <div>
+      <SignupForm/>
+    </div>
   )
 }
 

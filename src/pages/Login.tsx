@@ -1,5 +1,5 @@
 
-import {FC,useEffect} from 'react'
+import {useEffect} from 'react'
 import LoginForm from '../components/LoginForm'
 import { useActions } from '../hooks/useActions'
 import { useTypedSelector } from '../hooks/useTypedSelector'
@@ -24,7 +24,7 @@ const Login = () => {
 
     return (
         <div>
-            <h1>{isLoggedIn ? `Авторизован ${user?.email} ${user?.id} ${user?.isActivated}` : "Зарегистрироваться надо"}</h1>
+            <h1>{isLoggedIn ? `Авторизован ${user?.name}` : "Зарегистрироваться надо"}</h1>
             <button onClick={() => logout()}>Выйти</button>
         </div>
     )

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { privateRoutes, publicRoutes } from '../router';
 import { useTypedSelector } from '../hooks/useTypedSelector';

@@ -1,4 +1,3 @@
-import {FC} from 'react'
 
 const ChatRoom = () => {
   return (
