@@ -1,11 +1,28 @@
 @import url('/src/styles/index.css');
 @import url('/src/styles/colors.css');
 
-.molchatBtn{
-    padding: 5px 15px;
-    color: royalblue;
-    font-size: 14px;
-    background: transparent;
-    border: 1px solid royalblue;
+.molchatBtn {
+    --btn-height: 48px;
+    --border-radius: 0;
+    --current-color: var(--rt-orange);
+    --current-color-rgb: var(--rt-orange-rgb);
+    border-radius: 8px;
+    /*добавлено*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    min-width: 120px;
+    height: var(--btn-height);
+    padding: 0 24px;
+    border: 2px solid transparent;
+    font-size: 1rem;
+    /*масштаб отноститьно главного шрифта*/
+    line-height: 1.5rem;
+    font-weight: 500;
     cursor: pointer;
+    white-space: nowrap;
+    color: #fff;
+    background-color: var(--current-color);
+    margin: 5px;
 }

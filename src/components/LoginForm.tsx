@@ -1,6 +1,7 @@
 import { FC, useState } from 'react'
 import { useActions } from '../hooks/useActions'
 import './UI/button/ButtonStyle.css';
+import MolchatButton from './UI/button/MolchatButton';
 
 
 const LoginForm: FC = () => {
@@ -16,6 +17,7 @@ const LoginForm: FC = () => {
             <section id='page'>
                 <div className='container'>
                     <div className='container__wrapper'>
+                        <h1 className='container__title'>Авторизация</h1>
                         <div className='input-container'>
                             <input className='input__input'
                                 onChange={(e) => setEmail(e.target.value)}
@@ -31,17 +33,17 @@ const LoginForm: FC = () => {
                                 placeholder='Password' />
                         </div>
 
-                        <button className='btn btn-orange' onClick={() => login(email, password)}>
-                            Войти
-                        </button>
+                        <MolchatButton onClick={() => login(email, password)}>
+                            <p>Войти</p>
+                        </MolchatButton>
 
-                        <button className='btn' onClick={() => signup(email, password)} >
-                            Зарегистрироваться
-                        </button>
+                        <MolchatButton onClick={() => signup(email, password)} >
+                            <p>Зарегистрироваться</p>
+                        </MolchatButton>
 
-                        <button className='btn' onClick={() => logout()}>
-                            Выйти
-                        </button>
+                        <MolchatButton onClick={() => logout()}>
+                            <p>Выйти</p>
+                        </MolchatButton>
                     </div>
                 </div>
             </section>

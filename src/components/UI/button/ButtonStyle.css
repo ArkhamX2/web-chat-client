@@ -1,5 +1,10 @@
 @import url('/src/styles/colors.css');
 
+* {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        box-sizing: border-box;
+}
+
 /*button style*/
 .btn-rounded {
         --border-radius: 8px;
@@ -9,6 +14,7 @@
         --color: var(--rt-orange);
         --color-rgb: var(--rt-orange-rgb);
 }
+
 /*Добавить общий шаблон для кнопок, на основе которого будут пострены кнопочные стили*/
 /*Пример кнопочного стиля*/
 .btn {
@@ -26,7 +32,8 @@
         height: var(--btn-height);
         padding: 0 24px;
         border: 2px solid transparent;
-        font-size: 1rem; /*масштаб отноститьно главного шрифта*/
+        font-size: 1rem;
+        /*масштаб отноститьно главного шрифта*/
         line-height: 1.5rem;
         font-weight: 500;
         cursor: pointer;
@@ -35,11 +42,13 @@
         background-color: var(--current-color);
         margin: 5px;
 }
+
 /*контейнер для элементов*/
 .container {
         width: 624px;
         padding: 52px 104px;
 }
+
 .container {
         vertical-align: auto;
         display: flex;
@@ -57,6 +66,7 @@
         justify-content: center;
         width: 320px;
 }
+
 /*Контейнер для всего содержимого сайта или контейнер приложения*/
 #app-container {
         position: relative;
@@ -97,3 +107,12 @@
         white-space: nowrap;
         overflow: hidden;
 }
+
+/*заголовок*/
+.container__title {
+        display: block;
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin: 0 0 20px;
+}
+
