@@ -5,13 +5,12 @@ import axios from "axios"
 import { API_URL } from "../../API"
 import { AuthResponse } from "../../models/response/AuthResponse"
 
-export const signup = (email: string, password: string): any => {
+export const signup = (name: string, password: string): any => {
     return async (dispatch: Dispatch<AuthAction>) => {
         try {
             dispatch({ type: AuthActionTypes.REGISTER_FETCH })
-            const response = await AuthService.signup(email, password)
+            const response = await AuthService.signup(name, password)
             console.log(response);
-            localStorage.setItem('token', response.data.accessToken)
             dispatch({ type: AuthActionTypes.REGISTER_SUCCESS })
 
             return Promise.resolve();
@@ -24,15 +23,14 @@ export const signup = (email: string, password: string): any => {
     }
 }
 
-export const login = (email: string, password: string): any => {
+export const login = (name: string, password: string): any => {
     return async (dispatch: Dispatch<AuthAction>) => {
         try {
-            // dispatch({ type: AuthActionTypes.LOGIN_FETCH })
-            // const response = await AuthService.login(email, password)
-            // console.log(response);
+            dispatch({ type: AuthActionTypes.LOGIN_FETCH })
+            const response = await AuthService.login(name, password)
+            console.log(response);
             
-            // localStorage.setItem('token', response.data.accessToken)
-            dispatch({ type: AuthActionTypes.LOGIN_SUCCESS, payload: {email:"test@test.test", id:"1", isActivated: true} })
+            dispatch({ type: AuthActionTypes.LOGIN_SUCCESS, payload: response.data.user })
 
             return Promise.resolve();
         } catch (error) {
@@ -59,7 +57,6 @@ export const checkAuth = ():any => {
         try {
             const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true})
             
-            localStorage.setItem('token', response.data.accessToken)
             dispatch({ type: AuthActionTypes.LOGIN_SUCCESS, payload: response.data.user })
 
             return Promise.resolve();

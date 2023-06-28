@@ -1,4 +1,5 @@
 @import url('/src/styles/index.css');
+@import url('/src/styles/colors.css');
 
 .molchatBtn{
     padding: 5px 15px;
