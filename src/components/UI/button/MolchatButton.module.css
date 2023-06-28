@@ -1,0 +1,8 @@
+.molchatBtn{
+    padding: 5px 15px;
+    color: royalblue;
+    font-size: 14px;
+    background: transparent;
+    border: 1px solid royalblue;
+    cursor: pointer;
+}
