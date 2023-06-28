@@ -1,3 +1,39 @@
-.colors{
-    color:aliceblue
+/*colors*/
+html {
+    --rt-purple: #7700ff;
+    --rt-orange: #ff4f12;
+    --rt-green: #29cca3;
+    --rt-blue: #2f9aff;
+    --rt-purple-rgb: 119, 0, 255;
+    --rt-orange-rgb: 255, 79, 18;
+    --rt-green-rgb: 41, 204, 163;
+    --rt-blue-rgb: 47, 154, 255;
+    --rt-success: #00d359;
+    --rt-error: #ff0c0c;
+    --rt-warning: #ffb608;
+    --rt-info: #0042ed;
+    --rt-success-rgb: 0, 211, 89;
+    --rt-error-rgb: 255, 12, 12;
+    --rt-warning-rgb: 255, 182, 8;
+    --rt-info-rgb: 0, 66, 237;
+    --rt-white: #ffffff;
+    --rt-white-5: #f4f4f5;
+    --rt-white-10: #e8e8ee;
+    --rt-white-20: #d3d4db;
+    --rt-white-40: #b5b7c0;
+    --rt-white-rgb: 255, 255, 255;
+    --rt-white-5-rgb: 244, 244, 245;
+    --rt-white-10-rgb: 232, 232, 238;
+    --rt-white-20-rgb: 211, 212, 219;
+    --rt-white-40-rgb: 181, 183, 192;
+    --rt-main-text: #101828;
+    --rt-main-text-rgb: 16, 24, 40;
+    --rt-transparent-75: rgba(16, 24, 40, .7);
+    --rt-transparent-50: rgba(16, 24, 40, .5);
+    --rt-transparent-25: rgba(16, 24, 40, .25);
+    --rt-transparent-10: rgba(16, 24, 40, .1);
+    --rt-transparent-5: rgba(16, 24, 40, .05);
+    --rt-transparent-3: rgba(16, 24, 40, .03);
+    --rt-shadow: rgba(28, 41, 61, .1);
+    --rt-shadow-rgb: 28, 41, 61;
 }

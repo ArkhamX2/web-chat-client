@@ -1,0 +1,34 @@
+@import url('/src/styles/colors.css');
+/*button style*/
+.btn-rounded {
+        --border-radius: 8px;
+}
+.btn-orange {
+        --color: var(--rt-orange);
+        --color-rgb: var(--rt-orange-rgb);
+}
+
+.btn {
+        --btn-height: 48px;
+        --border-radius: 0;
+        --current-color: var(--rt-orange);
+        --current-color-rgb: var(--rt-orange-rgb);
+        /* border-radius: 8px; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 100%;
+        min-width: 120px;
+        height: var(--btn-height);
+        padding: 0 24px;
+        border: 2px solid transparent;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-weight: 500;
+        cursor: pointer;
+        outline: none;
+        white-space: nowrap;
+        color: #fff;
+        text-decoration: none;
+        background-color: var(--current-color);
+}
