@@ -1,11 +1,11 @@
 import {FC} from 'react'
 import { COLORS } from '../../../constants/styled-components/colors'
 
-interface NotificationProps{
+interface MolchatNotificationProps{
     text: string
 }
 
-const Notification :FC<NotificationProps> = ({text = 'Notification'}) => {
+const MolchatNotification :FC<MolchatNotificationProps> = ({text = 'Notification'}) => {
   return (
     <div style={{width: 300, height: 50, backgroundColor: COLORS.green, display: 'flex', alignItems: 'center', justifyContent:'center'}}>
         <p style={{fontSize: 16, color: 'white'}}>{text}</p>
@@ -13,4 +13,4 @@ const Notification :FC<NotificationProps> = ({text = 'Notification'}) => {
   )
 }
 
-export default Notification
+export default MolchatNotification

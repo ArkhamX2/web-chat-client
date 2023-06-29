@@ -3,37 +3,47 @@ import { Link } from "react-router-dom";
 import { useActions } from '../../../hooks/useActions';
 import UserService from '../../../API/services/UserService';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
-import Notification from '../Notification/Notification';
+import MolchatNotification from '../Notification/MolchatNotification';
 
 const Navbar = () => {
 
-    const { logout, setMessage,clearMessage } = useActions()
-    const {text} = useTypedSelector(state => state.message)
+    const { logout, setMessage, clearMessage } = useActions()
+    const { isLoggedIn } = useTypedSelector(state => state.auth)
+    const { text } = useTypedSelector(state => state.message)
+
+    if (!isLoggedIn) {
+        return (
+            <p></p>
+        )
+    }
 
     return (
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
             {text
-            ?<Notification text={text}/>
-            :<p></p>
+                ? <MolchatNotification text={text} />
+                : <p></p>
             }
-            <MolchatButton onClick={() => {
-                logout()
-                setMessage('Выход прошел успешно')
-                setTimeout(()=>clearMessage(),2000)
-            }}>
-                <p>Выйти</p>
-            </MolchatButton>
-            <div>
-                <Link to="/profile">Профиль пользователя</Link>
-                <Link to="/rooms">Чаты</Link>
+
+            <div style={{display:'flex', flexDirection:"row"}}>
+                <Link style={{marginLeft:10}} to="/profile">Профиль пользователя</Link>
+                <Link style={{marginLeft:10}} to="/rooms">Чаты</Link>
             </div>
 
-            <button
+            <button style={{display:"none"}}
                 onClick={() => {
                     const response = UserService.fetchUsers();
                     console.log(response);
                 }}
             >GET USERS TEST BUTTON</button>
+
+
+            <MolchatButton onClick={() => {
+                logout()
+                setMessage('Выход прошел успешно')
+                setTimeout(() => clearMessage(), 2000)
+            }}>
+                <p>Выйти</p>
+            </MolchatButton>
         </div>
     )
 }

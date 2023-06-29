@@ -4,12 +4,13 @@ import './UI/button/ButtonStyle.css';
 import MolchatButton from './UI/button/MolchatButton';
 import { Link } from 'react-router-dom';
 import { COLORS } from '../constants/styled-components/colors';
+import MolchatInput from './UI/Input/MolchatInput';
 
 
 const LoginForm: FC = () => {
 
     //const { isLoggedIn, isLoading, user, error } = useTypedSelector(state => state.auth)
-    const { login, logout, setMessage, clearMessage } = useActions()
+    const { login, setMessage, clearMessage } = useActions()
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -20,20 +21,16 @@ const LoginForm: FC = () => {
                 <div className='container'>
                     <div className='container__wrapper'>
                         <h1 className='container__title'>Авторизация</h1>
-                        <div className='input-container'>
-                            <input className='input__input'
-                                onChange={(e) => setEmail(e.target.value)}
-                                value={email}
-                                type='text'
-                                placeholder='Email' />
-                        </div>
-                        <div className='input-container'>
-                            <input className='input__input'
-                                onChange={(e) => setPassword(e.target.value)}
-                                value={password}
-                                type='password'
-                                placeholder='Password' />
-                        </div>
+
+                        <MolchatInput onChange={(e) => setEmail(e.target.value)}
+                            value={email}
+                            inputType='text'
+                            placeholder='Email' />
+
+                        <MolchatInput onChange={(e) => setPassword(e.target.value)}
+                            value={password}
+                            inputType='password'
+                            placeholder='Password' />
 
                         <MolchatButton onClick={() => {
                             login(email, password)
