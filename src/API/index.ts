@@ -1,12 +1,6 @@
 import axios from "axios";
-import { useActions } from "../hooks/useActions";
-import { useTypedSelector } from "../hooks/useTypedSelector";
 
 export const API_URL = 'http://localhost:8080'
-
-const {setMessage,clearMessage, logout} = useActions();
-const {text} = useTypedSelector(state => state.message)
-
 
 const $api = axios.create({
     withCredentials: true,
@@ -23,12 +17,8 @@ $api.interceptors.response.use((config) => {
 }, async (error) => {
 
     if (error.response.status == 401 && error.config) {
-
-        logout();
-        clearMessage();
-        setMessage('Вы не авторизованы или время действия вашей сессии истекло. Попробуйте войти ещё раз.');
-        console.log(text);
-
+        window.location.replace('/login')
+        alert('Вы не авторизованы или срок действия Вашей сессии истек. Попробуйте авторизоваться снова.')
     }
     throw error;
 })

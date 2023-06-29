@@ -2,12 +2,14 @@ import { FC, useState } from 'react'
 import { useActions } from '../hooks/useActions'
 import './UI/button/ButtonStyle.css';
 import MolchatButton from './UI/button/MolchatButton';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 
 
 const LoginForm: FC = () => {
 
     //const { isLoggedIn, isLoading, user, error } = useTypedSelector(state => state.auth)
-    const { login, signup, logout } = useActions()
+    const { login, signup, logout, setMessage, clearMessage } = useActions()
+    const { text } = useTypedSelector(state => state.message)
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -33,15 +35,30 @@ const LoginForm: FC = () => {
                                 placeholder='Password' />
                         </div>
 
-                        <MolchatButton onClick={() => login(email, password)}>
+                        <MolchatButton onClick={() => {
+                            login(email, password)
+                            setMessage('Авторизация прошла успешно')
+                            console.log(text);
+                            clearMessage()
+                        }}>
                             <p>Войти</p>
                         </MolchatButton>
 
-                        <MolchatButton onClick={() => signup(email, password)} >
+                        <MolchatButton onClick={() => {
+                            signup(email, password)
+                            setMessage('Регистрация прошла успешно')
+                            console.log(text);
+                            clearMessage()
+                        }} >
                             <p>Зарегистрироваться</p>
                         </MolchatButton>
 
-                        <MolchatButton onClick={() => logout()}>
+                        <MolchatButton onClick={() => {
+                            logout()
+                            setMessage('Выход прошел успешно')
+                            console.log(text);
+                            clearMessage()
+                        }}>
                             <p>Выйти</p>
                         </MolchatButton>
                     </div>
