@@ -1,15 +1,24 @@
 import MolchatButton from '../button/MolchatButton'
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useActions } from '../../../hooks/useActions';
 import UserService from '../../../API/services/UserService';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import Notification from '../Notification/Notification';
 
 const Navbar = () => {
 
-    const { logout } = useActions()
+    const { logout, setMessage } = useActions()
+    const {text} = useTypedSelector(state => state.message)
 
     return (
         <div>
-            <MolchatButton onClick={() => logout()}>
+            <Notification text={text}/>
+            <MolchatButton onClick={() => {
+                logout()
+                setMessage('Выход прошел успешно')
+                setTimeout(() => console.log(text)
+                ,2000)
+            }}>
                 <p>Выйти</p>
             </MolchatButton>
             <div>

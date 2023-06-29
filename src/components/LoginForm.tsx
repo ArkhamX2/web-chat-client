@@ -8,7 +8,7 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 const LoginForm: FC = () => {
 
     //const { isLoggedIn, isLoading, user, error } = useTypedSelector(state => state.auth)
-    const { login, signup, logout, setMessage, clearMessage } = useActions()
+    const { login, signup, logout, setMessage} = useActions()
     const { text } = useTypedSelector(state => state.message)
 
     const [email, setEmail] = useState<string>('');
@@ -38,8 +38,8 @@ const LoginForm: FC = () => {
                         <MolchatButton onClick={() => {
                             login(email, password)
                             setMessage('Авторизация прошла успешно')
-                            console.log(text);
-                            clearMessage()
+                            setTimeout(() => console.log(text)
+                            ,2000)
                         }}>
                             <p>Войти</p>
                         </MolchatButton>
@@ -47,8 +47,8 @@ const LoginForm: FC = () => {
                         <MolchatButton onClick={() => {
                             signup(email, password)
                             setMessage('Регистрация прошла успешно')
-                            console.log(text);
-                            clearMessage()
+                            setTimeout(() => console.log(text)
+                            ,2000)
                         }} >
                             <p>Зарегистрироваться</p>
                         </MolchatButton>
@@ -56,8 +56,8 @@ const LoginForm: FC = () => {
                         <MolchatButton onClick={() => {
                             logout()
                             setMessage('Выход прошел успешно')
-                            console.log(text);
-                            clearMessage()
+                            setTimeout(() => console.log(text)
+                            ,2000)
                         }}>
                             <p>Выйти</p>
                         </MolchatButton>

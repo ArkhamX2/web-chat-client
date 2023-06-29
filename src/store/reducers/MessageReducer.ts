@@ -8,11 +8,11 @@ const initialState: IMessage={
 export const MessageReducer=(state = initialState, action: MessageAction): IMessage => {
     switch (action.type){
         case MessageActionTypes.CLEAR_MESSAGE:
-            return {...state, text: ''}
+            return { text: '', error: ''}
         case MessageActionTypes.SET_MESSAGE:
-            return {...state, text: action.payload}
+            return {text: action.payload, error: ''}
         case MessageActionTypes.MESSAGE_ERROR:
-            return {...state, text: '', error: action.payload}
+            return {text: '', error: action.payload}
         default:
             return state
     }
