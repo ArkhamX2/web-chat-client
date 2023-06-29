@@ -17,7 +17,7 @@ $api.interceptors.response.use((config) => {
 }, async (error) => {
 
     if (error.response.status == 401 && error.config) {
-        window.location.replace('/login')
+        window.location.replace('/')
         alert('Вы не авторизованы или срок действия Вашей сессии истек. Попробуйте авторизоваться снова.')
     }
     throw error;
