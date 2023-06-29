@@ -5,6 +5,7 @@ import MolchatButton from './UI/button/MolchatButton';
 import { Link } from 'react-router-dom';
 import { COLORS } from '../constants/styled-components/colors';
 import MolchatInput from './UI/Input/MolchatInput';
+import MolchatForm from './UI/Form/MolchatForm';
 
 
 const LoginForm: FC = () => {
@@ -16,37 +17,32 @@ const LoginForm: FC = () => {
     const [password, setPassword] = useState<string>('');
 
     return (
-        <main id='app-container'>
-            <section id='page'>
-                <div className='container'>
-                    <div className='container__wrapper'>
-                        <h1 className='container__title'>Авторизация</h1>
+        <MolchatForm>
+            <h1 className='container__title'>Авторизация</h1>
 
-                        <MolchatInput onChange={(e) => setEmail(e.target.value)}
-                            value={email}
-                            inputType='text'
-                            placeholder='Email' />
+            <MolchatInput onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                inputType='text'
+                placeholder='Email' />
 
-                        <MolchatInput onChange={(e) => setPassword(e.target.value)}
-                            value={password}
-                            inputType='password'
-                            placeholder='Password' />
+            <MolchatInput onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                inputType='password'
+                placeholder='Password' />
 
-                        <MolchatButton onClick={() => {
-                            login(email, password)
-                            setMessage('Авторизация прошла успешно')
-                            setTimeout(() => clearMessage(), 2000)
-                        }}>
-                            <p>Войти</p>
-                        </MolchatButton>
+            <MolchatButton onClick={() => {
+                login(email, password)
+                setMessage('Авторизация прошла успешно')
+                setTimeout(() => clearMessage(), 2000)
+            }}>
+                <p>Войти</p>
+            </MolchatButton>
 
-                        <Link style={{ display: 'block', color: COLORS.main_text }} to={'/signup'}>Зарегистрироваться</Link>
+            <Link style={{ display: 'block', color: COLORS.main_text }} to={'/signup'}>Зарегистрироваться</Link>
 
-                        <Link style={{ display: 'block', color: COLORS.main_text }} to={'/password-reset'}>Восстановить пароль</Link>
-                    </div>
-                </div>
-            </section>
-        </main>
+            <Link style={{ display: 'block', color: COLORS.main_text }} to={'/password-reset'}>Восстановить пароль</Link>
+
+        </MolchatForm>
 
 
     )

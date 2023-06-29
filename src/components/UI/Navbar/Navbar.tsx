@@ -1,5 +1,4 @@
 import MolchatButton from '../button/MolchatButton'
-import { Link } from "react-router-dom";
 import { useActions } from '../../../hooks/useActions';
 import UserService from '../../../API/services/UserService';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
