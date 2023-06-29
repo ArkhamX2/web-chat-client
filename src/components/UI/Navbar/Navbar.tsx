@@ -7,17 +7,19 @@ import Notification from '../Notification/Notification';
 
 const Navbar = () => {
 
-    const { logout, setMessage } = useActions()
+    const { logout, setMessage,clearMessage } = useActions()
     const {text} = useTypedSelector(state => state.message)
 
     return (
         <div>
-            <Notification text={text}/>
+            {text
+            ?<Notification text={text}/>
+            :<p></p>
+            }
             <MolchatButton onClick={() => {
                 logout()
                 setMessage('Выход прошел успешно')
-                setTimeout(() => console.log(text)
-                ,2000)
+                setTimeout(()=>clearMessage(),2000)
             }}>
                 <p>Выйти</p>
             </MolchatButton>

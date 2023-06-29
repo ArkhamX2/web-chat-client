@@ -2,14 +2,12 @@ import { FC, useState } from 'react'
 import { useActions } from '../hooks/useActions'
 import './UI/button/ButtonStyle.css';
 import MolchatButton from './UI/button/MolchatButton';
-import { useTypedSelector } from '../hooks/useTypedSelector';
 
 
 const LoginForm: FC = () => {
 
     //const { isLoggedIn, isLoading, user, error } = useTypedSelector(state => state.auth)
-    const { login, signup, logout, setMessage} = useActions()
-    const { text } = useTypedSelector(state => state.message)
+    const { login, signup, logout, setMessage,clearMessage } = useActions()
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -38,8 +36,7 @@ const LoginForm: FC = () => {
                         <MolchatButton onClick={() => {
                             login(email, password)
                             setMessage('Авторизация прошла успешно')
-                            setTimeout(() => console.log(text)
-                            ,2000)
+                            setTimeout(() => clearMessage(), 2000)
                         }}>
                             <p>Войти</p>
                         </MolchatButton>
@@ -47,8 +44,7 @@ const LoginForm: FC = () => {
                         <MolchatButton onClick={() => {
                             signup(email, password)
                             setMessage('Регистрация прошла успешно')
-                            setTimeout(() => console.log(text)
-                            ,2000)
+                            setTimeout(() => clearMessage(), 2000)
                         }} >
                             <p>Зарегистрироваться</p>
                         </MolchatButton>
@@ -56,8 +52,7 @@ const LoginForm: FC = () => {
                         <MolchatButton onClick={() => {
                             logout()
                             setMessage('Выход прошел успешно')
-                            setTimeout(() => console.log(text)
-                            ,2000)
+                            setTimeout(() => clearMessage(), 2000)
                         }}>
                             <p>Выйти</p>
                         </MolchatButton>
