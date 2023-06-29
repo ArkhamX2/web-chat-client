@@ -4,6 +4,7 @@ import { useActions } from '../../../hooks/useActions';
 import UserService from '../../../API/services/UserService';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import MolchatNotification from '../Notification/MolchatNotification';
+import MolchatNavlink from '../Navlink/MolchatNavlink';
 
 const Navbar = () => {
 
@@ -25,8 +26,8 @@ const Navbar = () => {
             }
 
             <div style={{display:'flex', flexDirection:"row"}}>
-                <Link style={{marginLeft:10}} to="/profile">Профиль пользователя</Link>
-                <Link style={{marginLeft:10}} to="/rooms">Чаты</Link>
+                <MolchatNavlink destination='/rooms' text='Чаты'/>
+                <MolchatNavlink destination='/profile' text='Профиль'/>
             </div>
 
             <button style={{display:"none"}}

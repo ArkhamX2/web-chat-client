@@ -1,0 +1,12 @@
+@import url(/src/styles/colors.css);
+
+.molchatNavlinkContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.molchatNavlink{
+    text-decoration: none;
+    color: var(--rt-main-text);
+}
