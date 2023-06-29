@@ -27,12 +27,13 @@ const Navbar = () => {
                 <Link to="/profile">Профиль пользователя</Link>
                 <Link to="/rooms">Чаты</Link>
             </div>
+
             <button
                 onClick={() => {
                     const response = UserService.fetchUsers();
                     console.log(response);
                 }}
-            >GET USERS</button>
+            >GET USERS TEST BUTTON</button>
         </div>
     )
 }

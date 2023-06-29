@@ -14,5 +14,5 @@ export const privateRoutes = [
 export const publicRoutes = [
     {path: '/login', element: Login},
     {path: '/signup', element: Signup},
-    {path: '/password-reset', Element: PasswordReset},
+    {path: '/password-reset', element: PasswordReset},
 ]

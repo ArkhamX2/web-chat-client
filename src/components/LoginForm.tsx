@@ -2,12 +2,14 @@ import { FC, useState } from 'react'
 import { useActions } from '../hooks/useActions'
 import './UI/button/ButtonStyle.css';
 import MolchatButton from './UI/button/MolchatButton';
+import { Link } from 'react-router-dom';
+import { COLORS } from '../constants/styled-components/colors';
 
 
 const LoginForm: FC = () => {
 
     //const { isLoggedIn, isLoading, user, error } = useTypedSelector(state => state.auth)
-    const { login, signup, logout, setMessage,clearMessage } = useActions()
+    const { login, logout, setMessage, clearMessage } = useActions()
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -41,21 +43,9 @@ const LoginForm: FC = () => {
                             <p>Войти</p>
                         </MolchatButton>
 
-                        <MolchatButton onClick={() => {
-                            signup(email, password)
-                            setMessage('Регистрация прошла успешно')
-                            setTimeout(() => clearMessage(), 2000)
-                        }} >
-                            <p>Зарегистрироваться</p>
-                        </MolchatButton>
+                        <Link style={{ display: 'block', color: COLORS.main_text }} to={'/signup'}>Зарегистрироваться</Link>
 
-                        <MolchatButton onClick={() => {
-                            logout()
-                            setMessage('Выход прошел успешно')
-                            setTimeout(() => clearMessage(), 2000)
-                        }}>
-                            <p>Выйти</p>
-                        </MolchatButton>
+                        <Link style={{ display: 'block', color: COLORS.main_text }} to={'/password-reset'}>Восстановить пароль</Link>
                     </div>
                 </div>
             </section>
