@@ -1,7 +1,12 @@
 import axios from "axios";
-import { AuthResponse } from "../models/response/AuthResponse";
+import { useActions } from "../hooks/useActions";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 
 export const API_URL = 'http://localhost:8080'
+
+const {setMessage,clearMessage, logout} = useActions();
+const {text} = useTypedSelector(state => state.message)
+
 
 const $api = axios.create({
     withCredentials: true,
@@ -16,17 +21,14 @@ $api.interceptors.request.use((config) => {
 $api.interceptors.response.use((config) => {
     return config;
 }, async (error) => {
-    const originalRequest = error.config;
 
-    //Перенаправить на логинпейдж еслли 401
-    if (error.response.status == 401 && error.config && !error.config._isRetry) {
-        originalRequest._isRetry = true
-        try {
-            await axios.get<AuthResponse>(`${API_URL}/refresh`, { withCredentials: true })
-            return $api.request(originalRequest);
-        } catch (error) {
-            console.log('Пользователь не авторизован');
-        }
+    if (error.response.status == 401 && error.config) {
+
+        logout();
+        clearMessage();
+        setMessage('Вы не авторизованы или время действия вашей сессии истекло. Попробуйте войти ещё раз.');
+        console.log(text);
+
     }
     throw error;
 })

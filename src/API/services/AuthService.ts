@@ -12,7 +12,4 @@ export default class AuthService{
         return $api.post<AuthResponse>('/security/register', {name, password})
     }
 
-    static async logout(): Promise<void>{
-        return $api.post('/security/logout')
-    }
 }

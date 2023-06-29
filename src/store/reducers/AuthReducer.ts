@@ -4,7 +4,7 @@ const initialState: IAuth = {
     isLoggedIn: false,
     user: null,
     isLoading: false,
-    error: ''
+    error: '',
 }
 
 export const AuthReducer = (state = initialState, action: AuthAction): IAuth => {
