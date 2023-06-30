@@ -1,6 +1,6 @@
 export interface IMessage {
     text: string,
-    error: string,
+    messageError: string,
 }
 
 export enum MessageActionTypes {

@@ -2,34 +2,34 @@ import { AuthAction, AuthActionTypes, IAuth } from "../../models/IAuth";
 
 const initialState: IAuth = {
     isLoggedIn: false,
-    user: null,
-    isLoading: false,
-    error: '',
+    authUser: null,
+    isAuthLoading: false,
+    authError: '',
 }
 
 export const AuthReducer = (state = initialState, action: AuthAction): IAuth => {
     switch (action.type) {
         case AuthActionTypes.REGISTER_FETCH:
-            return { ...state, isLoading: true }
+            return { ...state, isAuthLoading: true }
 
         case AuthActionTypes.REGISTER_SUCCESS:
-            return { ...state, isLoading: false, isLoggedIn: false }
+            return { ...state, isAuthLoading: false, isLoggedIn: false }
 
         case AuthActionTypes.REGISTER_FAIL:
-            return { ...state, isLoading: false, isLoggedIn: false, error: action.payload }
+            return { ...state, isAuthLoading: false, isLoggedIn: false, authError: action.payload }
 
         case AuthActionTypes.LOGIN_FETCH:
-            return { ...state, isLoading: true }
+            return { ...state, isAuthLoading: true }
 
         case AuthActionTypes.LOGIN_SUCCESS:
-            return { ...state, isLoading: true, isLoggedIn:true, user: action.payload }
+            return { ...state, isAuthLoading: true, isLoggedIn:true, authUser: action.payload }
 
         case AuthActionTypes.LOGIN_FAIL:
-            return { ...state, isLoading: true, isLoggedIn:false, user:null, error: action.payload}
+            return { ...state, isAuthLoading: true, isLoggedIn:false, authUser:null, authError: action.payload}
 
 
         case AuthActionTypes.LOGOUT:
-            return { ...state, isLoading: false, user: null, isLoggedIn: false }
+            return { ...state, isAuthLoading: false, authUser: null, isLoggedIn: false }
 
         default:
             return state

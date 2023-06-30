@@ -2,33 +2,33 @@ import { IRoomList, RoomListAction, RoomListActionTypes } from "../../models/IRo
 
 
 const initialState: IRoomList = {
-    rooms: [{id:'0',name:'QWERTY',members:[{name:'TOM'}], error:''}],
-    isLoading: false,
-    error: ''
+    rooms: [{roomId:'0',roomName:'QWERTY',roomMembers:[{username:'TOM'}], roomError:''}],
+    roomListIsLoading: false,
+    roomListError: ''
 }
 
 export const RoomListReducer = (state = initialState, action: RoomListAction): IRoomList => {
     switch (action.type) {
         case RoomListActionTypes.FETCH_ROOM_LIST:
-            return { ...state, isLoading: true }
+            return { ...state, roomListIsLoading: true }
 
         case RoomListActionTypes.SUCCESS_FETCH_ROOM_LIST:
-            return { ...state, isLoading: false, rooms: action.payload }
+            return { ...state, roomListIsLoading: false, rooms: action.payload }
 
         case RoomListActionTypes.ERROR_ROOM_LIST:
-            return { ...state, isLoading: false, error: action.payload }
+            return { ...state, roomListIsLoading: false, roomListError: action.payload }
 
         case RoomListActionTypes.CREATE_ROOM:
-            return { ...state, isLoading: false, rooms: action.payload }
+            return { ...state, roomListIsLoading: false, rooms: action.payload }
 
         case RoomListActionTypes.CREATE_ROOM_ERROR:
-            return { ...state, isLoading: false, error: action.payload }
+            return { ...state, roomListIsLoading: false, roomListError: action.payload }
 
         case RoomListActionTypes.DELETE_ROOM:
-            return { ...state, isLoading: false, rooms: action.payload }
+            return { ...state, roomListIsLoading: false, rooms: action.payload }
 
         case RoomListActionTypes.DELETE_ROOM_ERROR:
-            return { ...state, isLoading: false, error: action.payload }
+            return { ...state, roomListIsLoading: false, roomListError: action.payload }
 
         default:
             return state

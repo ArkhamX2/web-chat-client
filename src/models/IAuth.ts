@@ -2,9 +2,9 @@ import { IUser } from "./IUser";
 
 export interface IAuth {
     isLoggedIn: boolean,
-    user: IUser | null,
-    isLoading: boolean,
-    error: string,
+    authUser: IUser | null,
+    isAuthLoading: boolean,
+    authError: string,
 }
 
 export enum AuthActionTypes {

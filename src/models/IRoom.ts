@@ -1,10 +1,10 @@
 import { IUser } from "./IUser";
 
 export interface IRoom {
-    members: IUser[],
-    name: string,
-    id: string,
-    error: string,
+    roomMembers: IUser[],
+    roomName: string,
+    roomId: string,
+    roomError: string,
 }
 
 export enum RoomActionTypes {

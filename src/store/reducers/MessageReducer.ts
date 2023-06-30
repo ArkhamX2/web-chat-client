@@ -2,17 +2,17 @@ import { IMessage, MessageAction, MessageActionTypes } from "../../models/IMessa
 
 const initialState: IMessage={
     text: '',
-    error: ''
+    messageError: ''
 }
 
 export const MessageReducer=(state = initialState, action: MessageAction): IMessage => {
     switch (action.type){
         case MessageActionTypes.CLEAR_MESSAGE:
-            return { text: '', error: ''}
+            return { text: '', messageError: ''}
         case MessageActionTypes.SET_MESSAGE:
-            return {text: action.payload, error: ''}
+            return {text: action.payload, messageError: ''}
         case MessageActionTypes.MESSAGE_ERROR:
-            return {text: '', error: action.payload}
+            return {text: '', messageError: action.payload}
         default:
             return state
     }

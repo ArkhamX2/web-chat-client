@@ -27,6 +27,7 @@ const Navbar = () => {
             <div style={{display:'flex', flexDirection:"row"}}>
                 <MolchatNavlink destination='/rooms' text='Чаты'/>
                 <MolchatNavlink destination='/profile' text='Профиль'/>
+                <MolchatNavlink destination='/chat-room' text='1Чат'/>
             </div>
 
             <button style={{display:"none"}}

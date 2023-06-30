@@ -8,9 +8,9 @@ interface RoomListItemProps{
 const RoomListItem: FC<RoomListItemProps> = ({room}) => {
   return (
     <div>
-        <h1>{room.id}_{room.name}</h1>
-        {room.members.map((member)=>(
-            <p>{member.name}</p>
+        <h1>{room.roomId}_{room.roomName}</h1>
+        {room.roomMembers.map((member)=>(
+            <p>{member.username}</p>
         ))}
     </div>
   )

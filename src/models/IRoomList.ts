@@ -2,8 +2,8 @@ import { IRoom } from "./IRoom";
 
 export interface IRoomList {
     rooms: IRoom[],
-    isLoading: boolean,
-    error: string,
+    roomListIsLoading: boolean,
+    roomListError: string,
 }
 
 export enum RoomListActionTypes {
