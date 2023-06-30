@@ -4,9 +4,7 @@ import { IUser } from '../../models/IUser'
 
 
 export default class UserService{
-    static fetchUsers(): Promise<AxiosResponse<IUser[]>>{
-        console.log(localStorage.getItem('token'));
-        
+    static fetchUsers(): Promise<AxiosResponse<IUser[]>>{       
         return $api.get<IUser[]>('/user/me')
     }
 

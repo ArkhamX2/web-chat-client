@@ -1,7 +1,8 @@
+import RoomList from "../components/RoomList"
 
 const Rooms = () => {
   return (
-    <div>Rooms</div>
+    <div><RoomList/></div>
   )
 }
 
