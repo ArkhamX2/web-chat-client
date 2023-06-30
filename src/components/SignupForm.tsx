@@ -2,17 +2,31 @@ import { useState } from 'react'
 import './UI/button/ButtonStyle.css';
 import MolchatButton from './UI/button/MolchatButton';
 import { useActions } from '../hooks/useActions';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 import MolchatInput from './UI/Input/MolchatInput';
 import MolchatForm from './UI/Form/MolchatForm';
+import MolchatLoader from './UI/Loader/MolchatLoader';
 
 const SignupForm = () => {
-    //const { isLoggedIn, isLoading, user, error } = useTypedSelector(state => state.auth)
 
+    const {isLoading, error } = useTypedSelector(state => state.auth)
     const { signup, setMessage, clearMessage } = useActions();
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [passwordRepeat, setPasswordRepeat] = useState<string>('');
+
+    if(isLoading){
+        return(
+            <MolchatLoader/>
+        )
+    }
+
+    if(error){
+        return(
+            <h1>{error}</h1>
+        )
+    }
 
     return (
         <MolchatForm>

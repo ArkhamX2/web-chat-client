@@ -1,12 +1,25 @@
 import RoomListItem from './RoomListItem'
 import { useTypedSelector } from '../hooks/useTypedSelector'
 import { useActions } from '../hooks/useActions'
+import MolchatLoader from './UI/Loader/MolchatLoader'
 
 
 const RoomList = () => {
     
 const {isLoading, rooms, error} = useTypedSelector(state => state.roomList)
 const {createRoom, deleteRoom} = useActions()
+
+    if(isLoading){
+        return(
+            <MolchatLoader/>
+        )
+    }
+
+    if(error){
+        return(
+            <h1>{error}</h1>
+        )
+    }
 
   return (
     <div>

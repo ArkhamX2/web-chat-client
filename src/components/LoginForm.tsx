@@ -1,20 +1,34 @@
 import { FC, useState } from 'react'
 import { useActions } from '../hooks/useActions'
+import { useTypedSelector } from '../hooks/useTypedSelector';
 import './UI/button/ButtonStyle.css';
 import MolchatButton from './UI/button/MolchatButton';
 import { Link } from 'react-router-dom';
 import { COLORS } from '../constants/styled-components/colors';
 import MolchatInput from './UI/Input/MolchatInput';
 import MolchatForm from './UI/Form/MolchatForm';
+import MolchatLoader from './UI/Loader/MolchatLoader';
 
 
 const LoginForm: FC = () => {
 
-    //const { isLoggedIn, isLoading, user, error } = useTypedSelector(state => state.auth)
+    const {isLoading, error } = useTypedSelector(state => state.auth)
     const { login, setMessage, clearMessage } = useActions()
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+
+    if(isLoading){
+        return(
+            <MolchatLoader/>
+        )
+    }
+
+    if(error){
+        return(
+            <h1>{error}</h1>
+        )
+    }
 
     return (
         <MolchatForm>
