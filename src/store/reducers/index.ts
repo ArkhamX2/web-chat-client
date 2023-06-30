@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { AuthReducer } from "./AuthReducer";
 import { MessageReducer } from "./MessageReducer";
-import { RoomListReducer } from "./RoomsReducer";
+import { RoomListReducer } from "./RoomListReducer";
 import { RoomReducer } from "./RoomReducer";
 
 

@@ -1,6 +1,7 @@
 import { Dispatch } from "react"
 import { RoomListAction, RoomListActionTypes } from "../../models/IRoomList"
 import RoomListService from "../../API/services/RoomListService"
+import { IUser } from "../../models/IUser"
 
 
 export const fetchRooms = (): any => {
@@ -18,10 +19,10 @@ export const fetchRooms = (): any => {
     }
 }
 
-export const createRoom = (name: string): any => {
+export const createRoom = (name: string, members: IUser[]): any => {
     return async (dispatch: Dispatch<RoomListAction>) => {
         try {
-            const response = await RoomListService.createRoom(name);   
+            const response = await RoomListService.createRoom(name,members);   
             dispatch({ type: RoomListActionTypes.CREATE_ROOM, payload: response.data.rooms })
          
             return Promise.resolve();

@@ -1,8 +1,18 @@
-import React from 'react'
+import { FC } from 'react'
+import { IRoom } from '../models/IRoom'
 
-const RoomListItem = () => {
+interface RoomListItemProps{
+    room: IRoom
+}
+
+const RoomListItem: FC<RoomListItemProps> = ({room}) => {
   return (
-    <div>RoomListItem</div>
+    <div>
+        <h1>{room.id}_{room.name}</h1>
+        {room.members.map((member)=>(
+            <p>{member.name}</p>
+        ))}
+    </div>
   )
 }
 

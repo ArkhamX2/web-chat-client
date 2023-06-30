@@ -2,7 +2,7 @@ import { IRoomList, RoomListAction, RoomListActionTypes } from "../../models/IRo
 
 
 const initialState: IRoomList = {
-    rooms: [],
+    rooms: [{id:'0',name:'QWERTY',members:[{name:'TOM'}], error:''}],
     isLoading: false,
     error: ''
 }
