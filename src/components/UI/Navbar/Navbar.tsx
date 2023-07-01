@@ -25,6 +25,13 @@ const Navbar = () => {
             }
 
             <div style={{display:'flex', flexDirection:"row"}}>
+                
+                <a href='https://www.youtube.com/@professor_Bagirov/videos' target='_blank'>
+                    <img src='src/images/chatIcon.png' width='80%' style={{marginTop: 5}} alt='Chat'/>
+                </a>
+                <a href='https://www.youtube.com/@professor_Bagirov/videos' target='_blank'>
+                    <img src='src/images/profileIcon.png' width='80%' style={{marginTop: 5}} alt='Profile'/>
+                </a>
                 <MolchatNavlink destination='/rooms' text='Чаты'/>
                 <MolchatNavlink destination='/profile' text='Профиль'/>
                 <MolchatNavlink destination='/chat-room' text='1Чат'/>
