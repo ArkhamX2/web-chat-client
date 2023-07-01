@@ -24,20 +24,18 @@ const Navbar = () => {
                 : <p></p>
             }
 
-            <div style={{display:'flex', flexDirection:"row"}}>
-                
-                <a href='https://www.youtube.com/@professor_Bagirov/videos' target='_blank'>
-                    <img src='src/images/chatIcon.png' width='80%' style={{marginTop: 5}} alt='Chat'/>
-                </a>
-                <a href='https://www.youtube.com/@professor_Bagirov/videos' target='_blank'>
-                    <img src='src/images/profileIcon.png' width='80%' style={{marginTop: 5}} alt='Profile'/>
-                </a>
-                <MolchatNavlink destination='/rooms' text='Чаты'/>
-                <MolchatNavlink destination='/profile' text='Профиль'/>
-                <MolchatNavlink destination='/chat-room' text='1Чат'/>
+            <div style={{ display: 'flex', flexDirection: "row" }}>
+
+                <MolchatNavlink destination='/rooms' text='Чаты '>
+                    <img src='src/images/chatIcon.png' width='60%' style={{ marginTop: 5 }} alt='Chat' />
+                </MolchatNavlink>
+                <MolchatNavlink destination='/profile' text='Профиль'>
+                    <img src='src/images/profileIcon.png' width='60%' style={{ marginTop: 5 }} alt='Profile' />
+                </MolchatNavlink>
+                <MolchatNavlink destination='/chat-room' text='1Чат' />
             </div>
 
-            <button style={{display:"none"}}
+            <button style={{ display: "none" }}
                 onClick={() => {
                     const response = UserService.fetchUsers();
                     console.log(response);
