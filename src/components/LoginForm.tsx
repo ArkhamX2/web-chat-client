@@ -51,10 +51,11 @@ const LoginForm: FC = () => {
             }}>
                 <p>Войти</p>
             </MolchatButton>
-
-            <Link style={{ display: 'block', color: COLORS.main_text }} to={'/signup'}>Зарегистрироваться</Link>
-
-            <Link style={{ display: 'block', color: COLORS.main_text }} to={'/password-reset'}>Восстановить пароль</Link>
+            <div>
+                <Link style={{ display: 'inline-block', color: COLORS.main_text }} to={'/signup'}>Зарегистрироваться</Link>
+                <Link style={{ display: 'inline-block', marginLeft:'10px' , color: COLORS.main_text }} to={'/password-reset'}>Восстановить пароль</Link>
+            </div>
+            
 
         </MolchatForm>
 
