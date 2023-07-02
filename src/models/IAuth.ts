@@ -2,7 +2,7 @@ import { IUser } from "./IUser";
 
 export interface IAuth {
     isLoggedIn: boolean,
-    authUser: IUser | null,
+    authUser: IUser,
     
     isAuthLoading: boolean,
     authError: string,

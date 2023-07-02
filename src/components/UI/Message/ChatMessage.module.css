@@ -1,0 +1,11 @@
+.myMessage {
+    margin: '5px';
+    padding: '5px';
+    border: '3px solid black'
+}
+
+.othersMessage {
+    margin: '5px';
+    padding: '5px';
+    border: '3px solid gray'
+}
