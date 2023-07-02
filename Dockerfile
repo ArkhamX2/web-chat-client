@@ -1,38 +1,28 @@
-#### Stage 1: Build the react application
+# Этап 1: Сборка
 FROM node:lts-alpine3.18 AS build
 
-# Configure the main working directory inside the docker image. 
-# This is the base directory used in any further RUN, COPY, and ENTRYPOINT 
-# commands.
+# Переключение в директорию проекта.
 WORKDIR /app
 
-# Copy the package.json as well as the package-lock.json and install 
-# the dependencies. This is a separate step so the dependencies 
-# will be cached unless changes to one of those two files 
-# are made.
+# Копирование файлов package.json и package-lock.json.
 COPY package.json package-lock.json ./
 
+# Установка зависимостей.
 RUN npm install
 
-# Copy the main application
+# Копирование исходного кода проекта в контейнер.
 COPY . .
 
-# Arguments
-# TODO: Узнать что это.
-#ARG REACT_APP_API_BASE_URL
-#ENV REACT_APP_API_BASE_URL=${REACT_APP_API_BASE_URL}
-
-# Build the application
+# Сборка проекта
 RUN npm run build
 
-#### Stage 2: Serve the React application from Nginx 
+#### Этап 2: Запуск приложения с помощью Nginx
 FROM nginx:1.17.0-alpine
 
-# Copy the react build from Stage 1
+# Копирование сборки из этапа 1
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Expose port 80 to the Docker host, so we can access it 
-# from the outside.
+# Установка порта 80. Теперь приложение доступно извне
 EXPOSE 80
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
