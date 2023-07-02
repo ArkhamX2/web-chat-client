@@ -4,8 +4,8 @@ import { ChatMessageListAction, ChatMessageListActionTypes, IChatMessageList } f
 
 const initialState: IChatMessageList = {
     messages: [
-        {chatMessageSender:{username:'BOB'},chatMessageStatus: ChatMessageStatus.SEND, chatMessageText:'Hello'},
-    {chatMessageSender:{username:'TOM'},chatMessageStatus: ChatMessageStatus.READ, chatMessageText:'Hello!'}
+        {chatMessageSender:{username:'BOB', isUserLoading: false, userError:''},chatMessageStatus: ChatMessageStatus.SEND, chatMessageText:'Hello', chatMessageTimestamp: ''},
+    {chatMessageSender:{username:'TOM', isUserLoading: false, userError:''},chatMessageStatus: ChatMessageStatus.READ, chatMessageText:'Hello!', chatMessageTimestamp: ''}
 ],
     chatMessageListError: '',
     isChatMessageListLoading: false,

@@ -5,6 +5,7 @@ import { RoomListReducer } from "./RoomListReducer";
 import { RoomReducer } from "./RoomReducer";
 import { ChatMessageReducer } from "./ChatMessageReducer";
 import { ChatMessageListReducer } from "./ChatMessageListReducer";
+import { UserReducer } from "./UserReducer";
 
 
 export const rootReducer = combineReducers({
@@ -14,6 +15,7 @@ export const rootReducer = combineReducers({
    room: RoomReducer,
    chatMessage: ChatMessageReducer,
    chatMessageList: ChatMessageListReducer,
+   user: UserReducer,
 })
 
 

@@ -4,6 +4,7 @@ import * as RoomActionCreators from './room'
 import * as RoomListActionCreators from './roomList'
 import * as ChatMessageActionCreators from './chatMessage'
 import * as ChatMessageListActionCreators from './chatMessageList'
+import * as UserActionCreators from './user'
 
 export default{
     ...AuthActionCreators,
@@ -11,5 +12,6 @@ export default{
     ...RoomActionCreators,
     ...RoomListActionCreators,
     ...ChatMessageActionCreators,
-    ...ChatMessageListActionCreators
+    ...ChatMessageListActionCreators,
+    ...UserActionCreators
 }

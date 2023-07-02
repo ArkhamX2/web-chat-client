@@ -6,9 +6,11 @@ import { Link } from 'react-router-dom'
 import MolchatForm from './UI/Form/MolchatForm'
 import MolchatLoader from './UI/Loader/MolchatLoader'
 import { useTypedSelector } from '../hooks/useTypedSelector'
+import { useActions } from '../hooks/useActions'
 
 const PasswordResetForm = () => {
 
+    const {changePassword} = useActions()
     const {isAuthLoading, authError } = useTypedSelector(state => state.auth)
 
     const [email, setEmail] = useState<string>('');
@@ -47,7 +49,7 @@ const PasswordResetForm = () => {
                 placeholder='Повторите пароль' />
 
             <MolchatButton onClick={() => {
-                console.log('Сброс пароля');
+                changePassword(newPassword)
             }}>
                 <p>Установить новый пароль</p>
             </MolchatButton>
