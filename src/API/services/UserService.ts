@@ -1,6 +1,6 @@
 import {AxiosResponse} from 'axios'
 import $api from '../index'
-import { UserResponse } from '../../models/response/usersResponce'
+import { UserResponse } from '../../models/response/UsersResponce'
 
 
 export default class UserService{
