@@ -3,6 +3,7 @@ import { IUser } from "./IUser";
 export interface IAuth {
     isLoggedIn: boolean,
     authUser: IUser | null,
+    
     isAuthLoading: boolean,
     authError: string,
 }

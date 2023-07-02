@@ -9,21 +9,21 @@ import { useTypedSelector } from '../hooks/useTypedSelector'
 
 const PasswordResetForm = () => {
 
-    const {isLoading, error } = useTypedSelector(state => state.auth)
+    const {isAuthLoading, authError } = useTypedSelector(state => state.auth)
 
     const [email, setEmail] = useState<string>('');
     const [newPassword, setNewPassword] = useState<string>('');
     const [newPasswordRepeat, setNewPasswordRepeat] = useState<string>('');
 
-    if(isLoading){
+    if(isAuthLoading){
         return(
             <MolchatLoader/>
         )
     }
 
-    if(error){
+    if(authError){
         return(
-            <h1>{error}</h1>
+            <h1>{authError}</h1>
         )
     }
 

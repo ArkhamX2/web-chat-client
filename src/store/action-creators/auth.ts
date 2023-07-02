@@ -9,9 +9,9 @@ import { AuthResponse } from "../../models/response/AuthResponse"
 export const signup = (name: string, password: string): any => {
     return async (dispatch: Dispatch<AuthAction>) => {
         try {
-            dispatch({ type: AuthActionTypes.REGISTER_FETCH })
-            //const response = await AuthService.signup(name, password)
-            //localStorage.setItem('token', response.headers.authorization)
+            // dispatch({ type: AuthActionTypes.REGISTER_FETCH })
+            // const response = await AuthService.signup(name, password)
+            // localStorage.setItem('token', response.headers.authorization)
             dispatch({ type: AuthActionTypes.REGISTER_SUCCESS })
             return Promise.resolve();
         } catch (error) {
@@ -24,10 +24,10 @@ export const signup = (name: string, password: string): any => {
 export const login = (name: string, password: string): any => {
     return async (dispatch: Dispatch<AuthAction>) => {
         try {
-            dispatch({ type: AuthActionTypes.LOGIN_FETCH })
-            //const response = await AuthService.login(name, password)
-            //localStorage.setItem('token', response.headers.authorization)
-            dispatch({ type: AuthActionTypes.LOGIN_SUCCESS, payload: {username: name} })
+            // dispatch({ type: AuthActionTypes.LOGIN_FETCH })
+            // const response = await AuthService.login(name, password)
+            // localStorage.setItem('token', response.headers.authorization)
+            dispatch({ type: AuthActionTypes.LOGIN_SUCCESS, payload: {username:'test'} })
             return Promise.resolve();
         } catch (error) {
             console.log(error);
@@ -39,7 +39,7 @@ export const login = (name: string, password: string): any => {
 
 export const logout = (): any => {
     return async (dispatch: Dispatch<AuthAction>) => {
-        localStorage.removeItem('token')
+        //localStorage.removeItem('token')
         dispatch({ type: AuthActionTypes.LOGOUT })
 
     }

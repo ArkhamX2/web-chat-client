@@ -9,6 +9,7 @@ const Navbar = () => {
 
     const { logout, setMessage, clearMessage } = useActions()
     const { isLoggedIn } = useTypedSelector(state => state.auth)
+
     const { text } = useTypedSelector(state => state.message)
 
     if (!isLoggedIn) {
@@ -19,6 +20,7 @@ const Navbar = () => {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'row' }}>
+
             {text
                 ? <MolchatNotification text={text} />
                 : <p></p>
