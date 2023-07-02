@@ -29,7 +29,7 @@ interface FetchUserErrorAction {
 
 interface FetchUserSuccessAction {
     type: UserActionTypes.FETCH_USER_SUCCESS,
-    payload: IUser,
+    payload: string,
 }
 
 interface ChangeUsernameAction {
@@ -43,7 +43,7 @@ interface ChangeUsernameErrorAction {
 
 interface ChangeUsernameSuccessAction {
     type: UserActionTypes.CHANGE_USERNAME_SUCCESS,
-    payload: IUser,
+    payload: string,
 }
 
 interface ChangePasswordAction {
@@ -57,7 +57,7 @@ interface ChangePasswordErrorAction {
 
 interface ChangePasswordSuccessAction {
     type: UserActionTypes.CHANGE_PASSWORD_SUCCESS,
-    payload: IUser,
+    payload: string,
 }
 
 export type UserAction = FetchUserAction

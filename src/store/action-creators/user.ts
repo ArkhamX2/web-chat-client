@@ -11,7 +11,7 @@ export const fetchUser = (): any => {
             dispatch({ type: UserActionTypes.FETCH_USER})
             const response = await UserService.fetchUser();   
 
-            dispatch({ type: UserActionTypes.FETCH_USER_SUCCESS, payload: response.data })
+            dispatch({ type: UserActionTypes.FETCH_USER_SUCCESS, payload: response.data.name })
        
             return Promise.resolve();
         } catch (error) {
@@ -27,7 +27,7 @@ export const changeUsername = (newUsername: string): any => {
             dispatch({ type: UserActionTypes.FETCH_USER})
             const response = await UserService.changeUsername(newUsername);   
 
-            dispatch({ type: UserActionTypes.FETCH_USER_SUCCESS, payload: response.data })
+            dispatch({ type: UserActionTypes.FETCH_USER_SUCCESS, payload: response.data.name })
        
             return Promise.resolve();
         } catch (error) {
@@ -43,7 +43,7 @@ export const changePassword = (newPassword: string): any => {
             dispatch({ type: UserActionTypes.CHANGE_PASSWORD})
             const response = await UserService.changePassword(newPassword);   
 
-            dispatch({ type: UserActionTypes.CHANGE_PASSWORD_SUCCESS, payload: response.data })
+            dispatch({ type: UserActionTypes.CHANGE_PASSWORD_SUCCESS, payload: response.data.name })
        
             return Promise.resolve();
         } catch (error) {

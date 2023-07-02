@@ -15,7 +15,7 @@ export const UserReducer = (state = initialState, action: UserAction): IUser => 
             return { ...state, isUserLoading: false, userError: action.payload }
 
         case UserActionTypes.FETCH_USER_SUCCESS:
-            return { ...state, isUserLoading: false, userError: '', username: action.payload.username }
+            return { ...state, isUserLoading: false, userError: '', username: action.payload }
 
         case UserActionTypes.CHANGE_USERNAME:
             return { ...state, isUserLoading: true }
@@ -24,7 +24,7 @@ export const UserReducer = (state = initialState, action: UserAction): IUser => 
             return { ...state, isUserLoading: false, userError: action.payload }
 
         case UserActionTypes.CHANGE_USERNAME_SUCCESS:
-            return { ...state, isUserLoading: false, userError: '', username: action.payload.username }
+            return { ...state, isUserLoading: false, userError: '', username: action.payload }
 
         case UserActionTypes.CHANGE_PASSWORD:
             return { ...state, isUserLoading: true }
@@ -33,7 +33,7 @@ export const UserReducer = (state = initialState, action: UserAction): IUser => 
             return { ...state, isUserLoading: false, userError: action.payload }
 
         case UserActionTypes.CHANGE_PASSWORD_SUCCESS:
-            return { ...state, isUserLoading: false, userError: '', username: action.payload.username }
+            return { ...state, isUserLoading: false, userError: '', username: action.payload }
 
         default:
             return state
