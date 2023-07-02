@@ -39,7 +39,7 @@ const Navbar = () => {
 
             <button style={{ display: "none" }}
                 onClick={() => {
-                    const response = UserService.fetchUsers();
+                    const response = UserService.fetchUser();
                     console.log(response);
                 }}
             >GET USERS TEST BUTTON</button>

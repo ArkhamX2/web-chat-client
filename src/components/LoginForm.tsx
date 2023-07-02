@@ -14,7 +14,7 @@ const LoginForm: FC = () => {
 
     const {isAuthLoading, authError } = useTypedSelector(state => state.auth)
 
-    const { login, setMessage, clearMessage } = useActions()
+    const { login, setMessage} = useActions()
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');

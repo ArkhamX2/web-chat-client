@@ -1,7 +1,5 @@
 import { Dispatch } from "react"
-import { RoomAction, RoomActionTypes } from "../../models/IRoom";
-import { IUser, UserAction, UserActionTypes } from "../../models/IUser";
-import RoomService from "../../API/services/RoomService";
+import { UserAction, UserActionTypes } from "../../models/IUser";
 import UserService from "../../API/services/UserService";
 
 

@@ -48,7 +48,7 @@ export const logout = (): any => {
 export const checkAuth = (): any => {
     return async (dispatch: Dispatch<AuthAction>) => {
         try {
-            const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, { withCredentials: true })
+            await axios.get<AuthResponse>(`${API_URL}/refresh`, { withCredentials: true })
 
             dispatch({ type: AuthActionTypes.LOGIN_SUCCESS, payload: {username: 'test', isUserLoading: false, userError: ''}})
 

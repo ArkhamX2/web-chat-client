@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { ChatMessageStatus, IChatMessage } from '../../../models/IChatMessage'
 import { IUser } from '../../../models/IUser'
-import classes from './chatMessage.module.css'
+import classes from './ChatMessage.module.css'
 
 interface ChatMessageProps {
     message: IChatMessage,
