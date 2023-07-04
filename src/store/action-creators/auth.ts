@@ -27,7 +27,7 @@ export const login = (name: string, password: string): any => {
             dispatch({ type: AuthActionTypes.LOGIN_FETCH })
             const response = await AuthService.login(name, password)
             localStorage.setItem('token', response.headers.authorization)
-            dispatch({ type: AuthActionTypes.LOGIN_SUCCESS, payload: {username:'test', isUserLoading: false, userError: ''} })
+            dispatch({ type: AuthActionTypes.LOGIN_SUCCESS, payload:response.data.user })
             return Promise.resolve();
         } catch (error) {
             console.log(error);
@@ -48,9 +48,9 @@ export const logout = (): any => {
 export const checkAuth = (): any => {
     return async (dispatch: Dispatch<AuthAction>) => {
         try {
-            await axios.get<AuthResponse>(`${API_URL}/refresh`, { withCredentials: true })
+            const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, { withCredentials: true })
 
-            dispatch({ type: AuthActionTypes.LOGIN_SUCCESS, payload: {username: 'test', isUserLoading: false, userError: ''}})
+            dispatch({ type: AuthActionTypes.LOGIN_SUCCESS, payload:response.data.user})
 
             return Promise.resolve();
         } catch (error) {

@@ -1,4 +1,5 @@
 export interface IUser{
+    id: string,
     username: string,
     isUserLoading: boolean,
     userError: string,

@@ -1,11 +1,11 @@
 import { ChatMessageStatus } from "../../models/IChatMessage";
 import { ChatMessageListAction, ChatMessageListActionTypes, IChatMessageList } from "../../models/IChatMessageList"
+import { initialUserState } from "./UserReducer";
 
 
 const initialState: IChatMessageList = {
     messages: [
-        {chatMessageSender:{username:'BOB', isUserLoading: false, userError:''},chatMessageStatus: ChatMessageStatus.SEND, chatMessageText:'Hello', chatMessageTimestamp: ''},
-    {chatMessageSender:{username:'TOM', isUserLoading: false, userError:''},chatMessageStatus: ChatMessageStatus.READ, chatMessageText:'Hello!', chatMessageTimestamp: ''}
+        {chatMessageSender:initialUserState,chatMessageStatus: ChatMessageStatus.SEND, chatMessageText:'Hello', chatMessageTimestamp: ''}
 ],
     chatMessageListError: '',
     isChatMessageListLoading: false,

@@ -33,7 +33,7 @@ const RoomList = () => {
                 <MolchatButton onClick={() => deleteRoom('test')}>
                     <p>Удалить чат</p>
                 </MolchatButton>
-                <MolchatButton onClick={() => createRoom('test', [{ username: 'qwerty', isUserLoading: false, userError: '' }, { username: 'BOBINSKY', isUserLoading: false, userError: '' }])}>
+                <MolchatButton onClick={() => createRoom('test', [{id:'0',isUserLoading: false,userError:'',username:'123'}] )}>
                     <p>Создать чат</p>
                 </MolchatButton>
             </div>

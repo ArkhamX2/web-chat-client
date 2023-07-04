@@ -1,12 +1,13 @@
 import { IUser, UserAction, UserActionTypes } from "../../models/IUser";
 
-const initialState: IUser = {
+export const initialUserState: IUser = {
+    id: '',
     username: '',
     isUserLoading: false,
     userError: ''
 }
 
-export const UserReducer = (state = initialState, action: UserAction): IUser => {
+export const UserReducer = (state = initialUserState, action: UserAction): IUser => {
     switch (action.type) {
         case UserActionTypes.FETCH_USER:
             return { ...state, isUserLoading: true }

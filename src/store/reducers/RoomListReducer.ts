@@ -1,8 +1,9 @@
 import { IRoomList, RoomListAction, RoomListActionTypes } from "../../models/IRoomList"
+import { initialUserState } from "./UserReducer"
 
 
 const initialState: IRoomList = {
-    rooms: [{roomId:'roomid1',roomName:'roomname1',roomMembers:[{username:'TOM', isUserLoading: false, userError:''}], roomError:''}],
+    rooms: [{roomId:'roomid1',roomName:'roomname1',roomMembers:[initialUserState], roomError:''}],
     roomListIsLoading: false,
     roomListError: ''
 }

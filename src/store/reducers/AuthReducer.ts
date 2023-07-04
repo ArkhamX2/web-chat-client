@@ -1,8 +1,9 @@
 import { AuthAction, AuthActionTypes, IAuth } from "../../models/IAuth";
+import { initialUserState } from "./UserReducer";
 
 const initialState: IAuth = {
     isLoggedIn: false,
-    authUser: {username: '', isUserLoading: false, userError: ''},
+    authUser: {id: '', username: '', isUserLoading: false, userError: ''},
     isAuthLoading: false,
     authError: '',
 }
@@ -25,10 +26,10 @@ export const AuthReducer = (state = initialState, action: AuthAction): IAuth => 
             return { ...state, isAuthLoading: false, isLoggedIn:true, authUser: action.payload }
 
         case AuthActionTypes.LOGIN_FAIL:
-            return { ...state, isAuthLoading: false, isLoggedIn:false, authUser:{username: '', isUserLoading: false, userError:''}, authError: action.payload}
+            return { ...state, isAuthLoading: false, isLoggedIn:false, authUser:initialUserState, authError: action.payload}
 
         case AuthActionTypes.LOGOUT:
-            return { ...state, isAuthLoading: false, authUser:{username: '', isUserLoading: false, userError:''}, isLoggedIn: false }
+            return { ...state, isAuthLoading: false, authUser:initialUserState, isLoggedIn: false }
 
         default:
             return state
