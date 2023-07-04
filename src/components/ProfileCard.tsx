@@ -4,17 +4,17 @@ import MolchatLoader from './UI/Loader/MolchatLoader'
 const ProfileCard = () => {
     const { username, isUserLoading, userError } = useTypedSelector(state => state.user)
 
-    if (userError) {
-        return (
-            <p>{userError}</p>
-        )
-    }
+    // if (userError) {
+    //     return (
+    //         <p>{userError}</p>
+    //     )
+    // }
 
-    if (isUserLoading) {
-        return (
-            <MolchatLoader />
-        )
-    }
+    // if (isUserLoading) {
+    //     return (
+    //         <MolchatLoader />
+    //     )
+    // }
 
 
         //Сделать модальное окно с изменением имени пользователя, которое появляется при нажатии на имя пользователя

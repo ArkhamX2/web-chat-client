@@ -14,21 +14,21 @@ const Chat = () => {
     const {activeContactUser} = useTypedSelector(state => state.activeContact)
 
     const { fetchChatMessages, sendChatMessage,setMessage, clearMessage } = useActions()
-    const { sender,recipient } = useTypedSelector(state => state.room)
+    //const { sender,recipient } = useTypedSelector(state => state.room)
     const { messages, isChatMessageListLoading, chatMessageListError } = useTypedSelector(state => state.chatMessageList)
     const { text} = useTypedSelector(state => state.message)
   
-    useEffect(()=>{
-      fetchChatMessages(sender.id,recipient.id);
-    },[])
+    // useEffect(()=>{
+    //   fetchChatMessages(sender.id,recipient.id);
+    // },[])
   
-    if (chatMessageListError) {
-      return <h1>{chatMessageListError}</h1>
-    }
+    // if (chatMessageListError) {
+    //   return <h1>{chatMessageListError}</h1>
+    // }
   
-    if (isChatMessageListLoading) {
-      return <MolchatLoader />
-    }
+    // if (isChatMessageListLoading) {
+    //   return <MolchatLoader />
+    // }
   
     const connect = () => {
         const Stomp = require("stompjs");
