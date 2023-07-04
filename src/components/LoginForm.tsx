@@ -1,7 +1,6 @@
 import { FC, useState } from 'react'
 import { useActions } from '../hooks/useActions'
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import './UI/button/ButtonStyle.css';
 import MolchatButton from './UI/button/MolchatButton';
 import { Link } from 'react-router-dom';
 import { COLORS } from '../constants/styled-components/colors';
