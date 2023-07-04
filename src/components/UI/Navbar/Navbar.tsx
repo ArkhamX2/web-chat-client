@@ -1,6 +1,5 @@
 import MolchatButton from '../button/MolchatButton'
 import { useActions } from '../../../hooks/useActions';
-import UserService from '../../../API/services/UserService';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import MolchatNotification from '../Notification/MolchatNotification';
 import MolchatNavlink from '../Navlink/MolchatNavlink';
@@ -41,13 +40,6 @@ const Navbar = () => {
                     <MolchatNavlink destination='/chat-room' text='1Чат' />
                 </div>
             </div>
-
-            <button style={{ display: "none" }}
-                onClick={() => {
-                    const response = UserService.fetchUser();
-                    console.log(response);
-                }}
-            >GET USERS TEST BUTTON</button>
 
             <div style={{alignSelf:'flex-start'}}>
                 <MolchatButton onClick={() => {

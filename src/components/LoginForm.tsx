@@ -38,7 +38,7 @@ const LoginForm: FC = () => {
             <MolchatInput onChange={(e) => setEmail(e.target.value)}
                 value={email}
                 inputType='text'
-                placeholder='Email' />
+                placeholder='Email'/>
 
             <MolchatInput onChange={(e) => setPassword(e.target.value)}
                 value={password}

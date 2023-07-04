@@ -4,8 +4,8 @@ import { UserResponse } from '../../models/response/usersResponce'
 
 
 export default class UserService{
-    static fetchUser(): Promise<AxiosResponse<UserResponse>>{       
-        return $api.get<UserResponse>('/user/me')
+    static fetchUser(id: string): Promise<AxiosResponse<UserResponse>>{       
+        return $api.get<UserResponse>(`/user/${id}`)
     }
 
     static changeUsername(newUsername:string): Promise<AxiosResponse<UserResponse>>{       
