@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './UI/button/ButtonStyle.css';
 import MolchatButton from './UI/button/MolchatButton';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
