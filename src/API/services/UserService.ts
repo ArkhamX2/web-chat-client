@@ -1,7 +1,6 @@
 import {AxiosResponse} from 'axios'
 import $api from '../index'
-import { UserResponse } from '../../models/response/UsersResponce'
-
+import { UserResponse } from '../../models/response/usersResponce'
 
 export default class UserService{
     static fetchUser(): Promise<AxiosResponse<UserResponse>>{       
