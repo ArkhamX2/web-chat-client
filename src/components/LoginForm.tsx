@@ -48,7 +48,7 @@ const LoginForm: FC = () => {
             <MolchatButton onClick={() => {
                 login(email, password)
                 setMessage('Авторизация прошла успешно')
-                //setTimeout(() => clearMessage(), 2000)
+                setTimeout(() => clearMessage(), 2000)
             }}>
                 <p>Войти</p>
             </MolchatButton>
