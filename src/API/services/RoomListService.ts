@@ -14,8 +14,8 @@ export default class RoomListService{
         return $api.post<RoomsResponse>('/deleteRoom', {id})
     }
 
-    static fetchRooms(): Promise<AxiosResponse<RoomsResponse>>{
-        return $api.get<RoomsResponse>('/rooms')
+    static fetchRooms(): Promise<AxiosResponse<IUser[]>>{
+        return $api.get<IUser[]>('/users')
     }
 
 }

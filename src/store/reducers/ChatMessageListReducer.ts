@@ -10,7 +10,7 @@ const initialState: IChatMessageList = {
             chatMessageSender:initialUserState,
             chatMessageStatus: ChatMessageStatus.SEND, 
             chatMessageText:'Hello', 
-            chatMessageTimestamp: ''
+            chatMessageTimestamp: new Date(),
         }
 ],
     chatMessageListError: '',

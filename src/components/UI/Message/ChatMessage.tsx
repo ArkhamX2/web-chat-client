@@ -29,7 +29,7 @@ const ChatMessage: FC<ChatMessageProps> = ({ message, user }) => {
                             ? '1 mark(galochka)'
                             : '2 marks(galochka)'
                         } alt="" />
-                    <p>{message.chatMessageTimestamp}</p>
+                    <p>{message.chatMessageTimestamp.toString()}</p>
                 </div>
             </div>
         </div>

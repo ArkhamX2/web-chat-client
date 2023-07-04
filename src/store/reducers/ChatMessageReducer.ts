@@ -6,7 +6,7 @@ const initialState: IChatMessage = {
     chatMessageSender: initialUserState,
     chatMessageStatus: ChatMessageStatus.SEND,
     chatMessageText: '',
-    chatMessageTimestamp: ''
+    chatMessageTimestamp: new Date(),
 }
 
 export const ChatMessageReducer = (state = initialState, action: ChatMessageAction): IChatMessage => {

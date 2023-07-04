@@ -11,7 +11,7 @@ export interface IChatMessage{
     chatMessageStatus: ChatMessageStatus,
     chatMessageSender: IUser,
     chatMessageRecipient: IUser,
-    chatMessageTimestamp: string,
+    chatMessageTimestamp: Date,
 }
 
 export enum ChatMessageActionTypes{
