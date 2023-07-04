@@ -1,7 +1,8 @@
 import { IUser } from "./IUser";
 
 export interface IRoom {
-    roomMembers: IUser[],
+    recipient: IUser,
+    sender: IUser,
     roomName: string,
     roomId: string,
     roomError: string,

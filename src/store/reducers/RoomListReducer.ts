@@ -3,7 +3,7 @@ import { initialUserState } from "./UserReducer"
 
 
 const initialState: IRoomList = {
-    rooms: [{roomId:'roomid1',roomName:'roomname1',roomMembers:[initialUserState], roomError:''}],
+    rooms: [{roomId:'roomid1',roomName:'roomname1',sender:initialUserState, recipient:initialUserState, roomError:''}],
     roomListIsLoading: false,
     roomListError: ''
 }

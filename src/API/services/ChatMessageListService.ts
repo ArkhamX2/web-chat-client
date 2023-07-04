@@ -10,8 +10,8 @@ export default class ChatMessageListService{
         return $api.post<ChatMessageListResponse>('/sendMessage', {message})
     }
 
-    static fetchChatMessages(chatRoomId: string): Promise<AxiosResponse<ChatMessageListResponse>>{
-        return $api.post<ChatMessageListResponse>('/messages', {chatRoomId})
+    static fetchChatMessages(senderId: string,recipientId: string): Promise<AxiosResponse<ChatMessageListResponse>>{
+        return $api.get<ChatMessageListResponse>('/messages/'+senderId + "/" + recipientId)
     }
 
 }

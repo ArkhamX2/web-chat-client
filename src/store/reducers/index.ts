@@ -6,6 +6,7 @@ import { RoomReducer } from "./RoomReducer";
 import { ChatMessageReducer } from "./ChatMessageReducer";
 import { ChatMessageListReducer } from "./ChatMessageListReducer";
 import { UserReducer } from "./UserReducer";
+import { ActiveContactReducer } from "./ActiveContactReducer";
 
 
 export const rootReducer = combineReducers({
@@ -16,6 +17,7 @@ export const rootReducer = combineReducers({
    chatMessage: ChatMessageReducer,
    chatMessageList: ChatMessageListReducer,
    user: UserReducer,
+   activeContact: ActiveContactReducer,
 })
 
 
