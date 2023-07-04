@@ -33,7 +33,7 @@ const LoginForm: FC = () => {
 
     return (
         <MolchatForm>
-            <h1 className='container__title'>Авторизация</h1>
+            <h2 className='container__title'>Авторизация</h2>
 
             <MolchatInput onChange={(e) => setEmail(e.target.value)}
                 value={email}

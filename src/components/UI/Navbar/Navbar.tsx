@@ -17,24 +17,29 @@ const Navbar = () => {
             <p></p>
         )
     }
-
+    /*дивы для каждого элемента это враперы, которые будут подсвечиваться*/
     return (
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', backgroundColor:'white'}}>
 
             {text
                 ? <MolchatNotification text={text} />
                 : <p></p>
             }
-
+            
             <div style={{ display: 'flex', flexDirection: "row" }}>
-
-                <MolchatNavlink destination='/rooms' text='Чаты '>
-                    <img src='src/images/chatIcon.png' width='60%' style={{ marginTop: 5 }} alt='Chat' />
-                </MolchatNavlink>
-                <MolchatNavlink destination='/profile' text='Профиль'>
+                <div style={{alignSelf:'flex-end'}}>
+                    <MolchatNavlink destination='/rooms' text='Чаты '>
+                        <img src='src/images/chatIcon.png' width='60%' style={{ marginTop: 5 }} alt='Chat' />
+                    </MolchatNavlink>
+                </div>
+                <div style={{alignSelf:'flex-end'}}> 
+                    <MolchatNavlink destination='/profile' text='Профиль'>
                     <img src='src/images/profileIcon.png' width='60%' style={{ marginTop: 5 }} alt='Profile' />
                 </MolchatNavlink>
-                <MolchatNavlink destination='/chat-room' text='1Чат' />
+                </div>
+                <div style={{alignSelf:'flex-end'}}>
+                    <MolchatNavlink destination='/chat-room' text='1Чат' />
+                </div>
             </div>
 
             <button style={{ display: "none" }}
@@ -44,14 +49,16 @@ const Navbar = () => {
                 }}
             >GET USERS TEST BUTTON</button>
 
+            <div style={{alignSelf:'flex-start'}}>
+                <MolchatButton onClick={() => {
+                    logout()
+                    setMessage('Выход прошел успешно')
+                    setTimeout(() => clearMessage(), 2000)
+                }}>
+                    <p>Выйти</p>
+                </MolchatButton>
+            </div>
 
-            <MolchatButton onClick={() => {
-                logout()
-                setMessage('Выход прошел успешно')
-                setTimeout(() => clearMessage(), 2000)
-            }}>
-                <p>Выйти</p>
-            </MolchatButton>
         </div>
     )
 }

@@ -1,11 +1,17 @@
 .myMessage {
     margin: '5px';
     padding: '5px';
-    border: '3px solid black'
+    border: '2px solid black';
+    text-align: right;
+    background-color: var(--rt-white-20);
+    border-radius: 2px 2px 2px 0px;
 }
 
 .othersMessage {
     margin: '5px';
     padding: '5px';
-    border: '3px solid gray'
+    border: '2px solid gray';
+    text-align: left;
+    background-color: var(--rt-white-10);
+    border-radius: 2px 2px 2px 0px;
 }
