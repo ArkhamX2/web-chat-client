@@ -12,6 +12,18 @@ const initialState: IRoom = {
 
 export const RoomReducer = (state = initialState, action: RoomAction): IRoom => {
     switch (action.type) {
+
+        case RoomActionTypes.SET_ROOM_SUCCESS:
+            return{...state, 
+                roomId: action.payload.roomId, 
+                sender: action.payload.sender, 
+                recipient: action.payload.recipient, 
+                roomName: action.payload.roomName, 
+                roomError: action.payload.roomError}
+
+        case RoomActionTypes.SET_ROOM_ERROR:
+            return{...state, roomError: action.payload}
+
         case RoomActionTypes.ADD_USER:
             return { ...state  }
 

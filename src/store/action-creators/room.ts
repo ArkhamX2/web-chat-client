@@ -1,8 +1,19 @@
 import { Dispatch } from "react"
-import { RoomAction, RoomActionTypes } from "../../models/IRoom";
+import { IRoom, RoomAction, RoomActionTypes } from "../../models/IRoom";
 import { IUser } from "../../models/IUser";
 import RoomService from "../../API/services/RoomService";
 
+export const setRoom = (room: IRoom): any => {
+    return async (dispatch: Dispatch<RoomAction>) => {
+        try {
+            dispatch({ type: RoomActionTypes.SET_ROOM_SUCCESS, payload: room})
+            return Promise.resolve();
+        } catch (error) {
+            dispatch({ type: RoomActionTypes.SET_ROOM_ERROR, payload: 'Не удалось выбрать чат' })
+            return Promise.reject();
+        }
+    }
+}
 
 export const addUser = (user: IUser): any => {
     return async (dispatch: Dispatch<RoomAction>) => {

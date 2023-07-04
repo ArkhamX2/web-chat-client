@@ -4,6 +4,7 @@ import { initialUserState } from "./UserReducer"
 
 const initialState: IRoomList = {
     rooms: [{roomId:'roomid1',roomName:'roomname1',sender:initialUserState, recipient:initialUserState, roomError:''}],
+    users: [initialUserState],
     roomListIsLoading: false,
     roomListError: ''
 }
@@ -14,7 +15,7 @@ export const RoomListReducer = (state = initialState, action: RoomListAction): I
             return { ...state, roomListIsLoading: true }
 
         case RoomListActionTypes.SUCCESS_FETCH_ROOM_LIST:
-            return { ...state, roomListIsLoading: false, rooms: action.payload }
+            return { ...state, roomListIsLoading: false, users: action.payload }
 
         case RoomListActionTypes.ERROR_ROOM_LIST:
             return { ...state, roomListIsLoading: false, roomListError: action.payload }

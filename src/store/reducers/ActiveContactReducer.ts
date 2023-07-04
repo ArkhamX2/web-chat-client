@@ -10,7 +10,7 @@ const initialState: IActiveContact = {
 export const ActiveContactReducer = (state = initialState, action: ActiveContactAction): IActiveContact => {
     switch (action.type) {
         case ActiveContactActionTypes.SET_ACTIVE_CONTACT:
-            return { ...state, isActiveContactLoading: true }
+            return { ...state, isActiveContactLoading: true, activeContactUser: action.payload }
 
         case ActiveContactActionTypes.FETCH_ACTIVE_CONTACT:
             return { ...state, isActiveContactLoading: true }

@@ -9,13 +9,24 @@ export interface IRoom {
 }
 
 export enum RoomActionTypes {
-    
+    SET_ROOM_SUCCESS = "SET_ROOM_SUCCESS",
+    SET_ROOM_ERROR = "SET_ROOM_ERROR",
     CHANGE_ROOM_NAME = "CHANGE_ROOM_NAME",
     CHANGE_ROOM_NAME_ERROR = "CHANGE_ROOM_NAME_ERROR",
     ADD_USER = "ADD_USER",
     ADD_USER_ERROR = "ADD_USER_ERROR",
     DELETE_USER = "DELETE_USER",
     DELETE_USER_ERROR = "DELETE_USER_ERROR",
+}
+
+interface SetRoomSuccess {
+    type: RoomActionTypes.SET_ROOM_SUCCESS,
+    payload: IRoom
+}
+
+interface SetRoomError {
+    type: RoomActionTypes.SET_ROOM_ERROR,
+    payload: string
 }
 
 interface ChangeRoomNameAction {
@@ -48,7 +59,10 @@ interface DeleteUserErrorAction {
 }
 
 
-export type RoomAction = ChangeRoomNameAction
+export type RoomAction =
+    | SetRoomSuccess
+    | SetRoomError
+    | ChangeRoomNameAction
     | ChangeRoomNameErrorAction
     | AddUserAction
     | AddUserErrorAction

@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { ChatMessageStatus, IChatMessage } from '../../../models/IChatMessage'
+import {  IChatMessage } from '../../../models/IChatMessage'
 import { IUser } from '../../../models/IUser'
 import classes from './ChatMessage.module.css'
 
@@ -17,20 +17,21 @@ const ChatMessage: FC<ChatMessageProps> = ({ message, user }) => {
                     : classes.othersMessage
             }>
 
-            <div>
-                <img src="" alt="" className='sender pic' /><h3 style={{ textDecoration: 'underline' }}>{message.chatMessageSender.username}</h3>
-            </div>
+            {/* <div>
+                <img src="" alt="" className='sender pic' />
+            </div> */}
+            <h3 style={{ textDecoration: 'underline' }}>{message.chatMessageSender.username}</h3>
             <div>
                 <p>{message.chatMessageText}</p>
                 {/* Див для индикаторов прочтения и времени отправки */}
-                <div> 
-                    <img
+                {/*<div> 
+                     <img
                         src={message.chatMessageStatus === ChatMessageStatus.SEND
                             ? '1 mark(galochka)'
                             : '2 marks(galochka)'
-                        } alt="" />
+                        } alt="" /> 
                     <p>{message.chatMessageTimestamp.toString()}</p>
-                </div>
+                </div>*/}
             </div>
         </div>
     )

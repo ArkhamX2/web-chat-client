@@ -16,7 +16,7 @@ export enum ActiveContactActionTypes {
 
 interface SetActiveContactAction {
     type: ActiveContactActionTypes.SET_ACTIVE_CONTACT
-    payload: string
+    payload: IUser
 }
 
 interface SetActiveContactErrorAction {

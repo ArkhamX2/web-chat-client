@@ -1,7 +1,9 @@
 import { IRoom } from "./IRoom";
+import { IUser } from "./IUser";
 
 export interface IRoomList {
     rooms: IRoom[],
+    users: IUser[],
     roomListIsLoading: boolean,
     roomListError: string,
 }
@@ -22,7 +24,7 @@ interface FetchRoomListAction {
 
 interface SuccessFetchRoomList {
     type: RoomListActionTypes.SUCCESS_FETCH_ROOM_LIST,
-    payload: IRoom[]
+    payload: IUser[]
 }
 
 interface ErrorRoomAction {

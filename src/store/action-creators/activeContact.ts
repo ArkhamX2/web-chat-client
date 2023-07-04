@@ -1,6 +1,7 @@
 import { Dispatch } from "react"
 import UserService from "../../API/services/UserService";
 import { ActiveContactAction, ActiveContactActionTypes } from "../../models/IActiveContact";
+import { IUser } from "../../models/IUser";
 
 export const fetchActiveContact = (contactId:string): any => {
     return async (dispatch: Dispatch<ActiveContactAction>) => {
@@ -17,10 +18,10 @@ export const fetchActiveContact = (contactId:string): any => {
 }
 
 
-export const setActiveContact = (contactId:string): any => {
+export const setActiveContact = (contact:IUser): any => {
     return async (dispatch: Dispatch<ActiveContactAction>) => {
         try {
-            dispatch({ type: ActiveContactActionTypes.SET_ACTIVE_CONTACT,payload: contactId })
+            dispatch({ type: ActiveContactActionTypes.SET_ACTIVE_CONTACT,payload: contact })
             return Promise.resolve();
         } catch (error) {
             dispatch({ type: ActiveContactActionTypes.SET_ACTIVE_CONTACT_ERROR, payload: 'Не удалось загрузить информацию о выбранном контакте' })

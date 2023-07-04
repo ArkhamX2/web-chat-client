@@ -1,9 +1,6 @@
 import { Dispatch } from "react"
 import { AuthAction, AuthActionTypes } from "../../models/IAuth"
 import AuthService from "../../API/services/AuthService"
-import axios from "axios"
-import { API_URL } from "../../API"
-import { AuthResponse } from "../../models/response/AuthResponse"
 
 
 export const signup = (name: string, password: string): any => {
@@ -27,7 +24,9 @@ export const login = (name: string, password: string): any => {
             dispatch({ type: AuthActionTypes.LOGIN_FETCH })
             const response = await AuthService.login(name, password)
             localStorage.setItem('token', response.headers.authorization)
-            dispatch({ type: AuthActionTypes.LOGIN_SUCCESS, payload:response.data.user })
+            dispatch({ type: AuthActionTypes.LOGIN_SUCCESS, payload:{id:response.data.id, username: response.data.name,isUserLoading: false ,userError: ''} })
+            console.log(response);
+            
             return Promise.resolve();
         } catch (error) {
             console.log(error);
@@ -42,19 +41,5 @@ export const logout = (): any => {
         localStorage.removeItem('token')
         dispatch({ type: AuthActionTypes.LOGOUT })
 
-    }
-}
-
-export const checkAuth = (): any => {
-    return async (dispatch: Dispatch<AuthAction>) => {
-        try {
-            const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, { withCredentials: true })
-
-            dispatch({ type: AuthActionTypes.LOGIN_SUCCESS, payload:response.data.user})
-
-            return Promise.resolve();
-        } catch (error) {
-            console.log(error);
-        }
     }
 }
