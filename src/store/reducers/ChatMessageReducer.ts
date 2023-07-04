@@ -2,6 +2,7 @@ import { ChatMessageStatus, IChatMessage,ChatMessageAction,ChatMessageActionType
 import { initialUserState } from "./UserReducer";
 
 const initialState: IChatMessage = {
+    chatMessageRecipient: initialUserState,
     chatMessageSender: initialUserState,
     chatMessageStatus: ChatMessageStatus.SEND,
     chatMessageText: '',

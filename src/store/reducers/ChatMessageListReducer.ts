@@ -5,7 +5,13 @@ import { initialUserState } from "./UserReducer";
 
 const initialState: IChatMessageList = {
     messages: [
-        {chatMessageSender:initialUserState,chatMessageStatus: ChatMessageStatus.SEND, chatMessageText:'Hello', chatMessageTimestamp: ''}
+        {
+            chatMessageRecipient:initialUserState,
+            chatMessageSender:initialUserState,
+            chatMessageStatus: ChatMessageStatus.SEND, 
+            chatMessageText:'Hello', 
+            chatMessageTimestamp: ''
+        }
 ],
     chatMessageListError: '',
     isChatMessageListLoading: false,

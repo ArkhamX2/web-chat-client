@@ -9,11 +9,6 @@ const RoomListItem: FC<RoomListItemProps> = ({room}) => {
   return (
     <div>
         <h1>{room.roomId}_{room.roomName}</h1>
-        {room.roomMembers.map((member)=>(
-          <div>
-            <p>{member.username}</p>
-          </div>            
-        ))}
     </div>
   )
 }

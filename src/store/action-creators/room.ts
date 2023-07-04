@@ -9,7 +9,7 @@ export const addUser = (user: IUser): any => {
         try {
             const response = await RoomService.addUser(user);   
 
-            dispatch({ type: RoomActionTypes.ADD_USER, payload: response.data.roomMembers })
+            dispatch({ type: RoomActionTypes.ADD_USER, payload: [response.data.recipient, response.data.sender] })
        
             return Promise.resolve();
         } catch (error) {
@@ -25,7 +25,7 @@ export const deleteUser = (user: IUser): any => {
         try {
             const response = await RoomService.deleteUser(user);   
 
-            dispatch({ type: RoomActionTypes.DELETE_USER, payload: response.data.roomMembers })
+            dispatch({ type: RoomActionTypes.DELETE_USER, payload: [response.data.recipient, response.data.sender] })
        
             return Promise.resolve();
         } catch (error) {

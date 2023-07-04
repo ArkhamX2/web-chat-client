@@ -10,6 +10,7 @@ export interface IChatMessage{
     chatMessageText: string,
     chatMessageStatus: ChatMessageStatus,
     chatMessageSender: IUser,
+    chatMessageRecipient: IUser,
     chatMessageTimestamp: string,
 }
 

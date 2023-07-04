@@ -12,7 +12,7 @@ const ChatMessage: FC<ChatMessageProps> = ({ message, user }) => {
     return (
         <div className=
             {
-                message.chatMessageSender.username === user?.username
+                message.chatMessageSender.id === user?.id
                     ? classes.myMessage
                     : classes.othersMessage
             }>

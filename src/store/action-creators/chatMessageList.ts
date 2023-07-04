@@ -3,12 +3,12 @@ import { ChatMessageListAction,ChatMessageListActionTypes } from "../../models/I
 import ChatMessageListService from "../../API/services/ChatMessageListService";
 import { IChatMessage } from "../../models/IChatMessage";
 
-export const fetchChatMessages = (chatRoomId:string): any => {
+export const fetchChatMessages = (senderID:string, recipientID: string): any => {
     return async (dispatch: Dispatch<ChatMessageListAction>) => {
         try {
             dispatch({ type: ChatMessageListActionTypes.FETCH_CHAT_MESSAGE_LIST })
 
-            const response = await ChatMessageListService.fetchChatMessages(chatRoomId);            
+            const response = await ChatMessageListService.fetchChatMessages(senderID, recipientID);            
             dispatch({ type: ChatMessageListActionTypes.FETCH_CHAT_MESSAGE_LIST_SUCCESS, payload: response.data.messages })
             return Promise.resolve();
         } catch (error) {
