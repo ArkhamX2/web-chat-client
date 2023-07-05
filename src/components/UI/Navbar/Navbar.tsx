@@ -3,7 +3,6 @@ import { useActions } from '../../../hooks/useActions';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import MolchatNotification from '../Notification/MolchatNotification';
 import MolchatNavlink from '../Navlink/MolchatNavlink';
-import { COLORS } from '../../../constants/styled-components/colors';
 
 const Navbar = () => {
 

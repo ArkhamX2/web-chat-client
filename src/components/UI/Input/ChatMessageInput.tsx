@@ -1,7 +1,8 @@
-import { FC, useState } from 'react'
-import MolchatInput from './MolchatInput'
+import { FC,useState } from 'react'
 import { ChatMessageStatus, IChatMessage } from '../../../models/IChatMessage'
 import { IUser } from '../../../models/IUser'
+import classes from './ChatMessageInput.module.css'
+import MolchatButton from '../button/MolchatButton'
 import { CHAT_API_URL } from '../../../API'
 
 interface ChatMessageInputProps {
@@ -13,6 +14,7 @@ interface ChatMessageInputProps {
 
 const ChatMessageInput: FC<ChatMessageInputProps> = ({send,sender,recipient,stompClient}) => {
 
+    const [userMessageText,setUserMessageText] = useState<string>('')
 
     const userMessage: IChatMessage= {
         chatMessageSender: sender,
@@ -32,7 +34,7 @@ const ChatMessageInput: FC<ChatMessageInputProps> = ({send,sender,recipient,stom
                     placeholder={"Отправьте сообщение"}
                 />
             </div>
-            <MolchatButton onClick={() => send(userMessage)}>Отправить сообщение</MolchatButton>
+            <MolchatButton onClick={() => {send(userMessage); stompClient.send(CHAT_API_URL+"/chat", {},userMessage)}}><p>Отправить сообщение</p></MolchatButton>
         </div>
     )
 }

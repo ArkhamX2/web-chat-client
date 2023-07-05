@@ -11,24 +11,24 @@ import MolchatLoader from './UI/Loader/MolchatLoader';
 
 const LoginForm: FC = () => {
 
-    //const {isAuthLoading, authError } = useTypedSelector(state => state.auth)
+    const {isAuthLoading, authError } = useTypedSelector(state => state.auth)
 
-    const { login, setMessage} = useActions()
+    const { login, setMessage,clearMessage} = useActions()
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
 
-    // if(isAuthLoading){
-    //     return(
-    //         <MolchatLoader/>
-    //     )
-    // }
+    if(isAuthLoading){
+        return(
+            <MolchatLoader/>
+        )
+    }
 
-    // if(authError){
-    //     return(
-    //         <h1>{authError}</h1>
-    //     )
-    // }
+    if(authError){
+        return(
+            <h1>{authError}</h1>
+        )
+    }
 
     return (
         <MolchatForm>

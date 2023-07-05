@@ -3,32 +3,32 @@ import { useTypedSelector } from '../hooks/useTypedSelector'
 import { useActions } from '../hooks/useActions'
 import MolchatLoader from './UI/Loader/MolchatLoader'
 import { useEffect } from 'react'
-
+import { IUser } from '../models/IUser'
 
 const RoomList = () => {
 
     const { roomListIsLoading, users, roomListError } = useTypedSelector(state => state.roomList)
     const { fetchRooms } = useActions()
 
-    // useEffect(()=>{
-    //     fetchRooms()
-    // },[])
+    useEffect(()=>{
+        fetchRooms()
+    },[])
 
-    // if (roomListIsLoading) {
-    //     return (
-    //         <MolchatLoader />
-    //     )
-    // }
+    if (roomListIsLoading) {
+        return (
+            <MolchatLoader />
+        )
+    }
 
-    // if (roomListError) {
-    //     return (
-    //         <h1>{roomListError}</h1>
-    //     )
-    // }
+    if (roomListError) {
+        return (
+            <h1>{roomListError}</h1>
+        )
+    }
 
     return (
         <div>
-            {users.map((user) => (
+            {users.map((user:IUser) => (
                 <RoomListItem key={user.id} user={user} />
             ))}
         </div>
