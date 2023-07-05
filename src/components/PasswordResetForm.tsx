@@ -11,23 +11,23 @@ import { useActions } from '../hooks/useActions'
 const PasswordResetForm = () => {
 
     const {changePassword} = useActions()
-    const {isAuthLoading, authError } = useTypedSelector(state => state.auth)
+    //const {isAuthLoading, authError } = useTypedSelector(state => state.auth)
 
     const [email, setEmail] = useState<string>('');
     const [newPassword, setNewPassword] = useState<string>('');
     const [newPasswordRepeat, setNewPasswordRepeat] = useState<string>('');
 
-    if(isAuthLoading){
-        return(
-            <MolchatLoader/>
-        )
-    }
+    // if(isAuthLoading){
+    //     return(
+    //         <MolchatLoader/>
+    //     )
+    // }
 
-    if(authError){
-        return(
-            <h1>{authError}</h1>
-        )
-    }
+    // if(authError){
+    //     return(
+    //         <h1>{authError}</h1>
+    //     )
+    // }
 
     return (
         <MolchatForm>

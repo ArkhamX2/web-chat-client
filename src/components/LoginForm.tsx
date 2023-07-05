@@ -1,7 +1,6 @@
 import { FC, useState } from 'react'
 import { useActions } from '../hooks/useActions'
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import './UI/button/ButtonStyle.css';
 import MolchatButton from './UI/button/MolchatButton';
 import { Link } from 'react-router-dom';
 import { COLORS } from '../constants/styled-components/colors';
@@ -12,24 +11,24 @@ import MolchatLoader from './UI/Loader/MolchatLoader';
 
 const LoginForm: FC = () => {
 
-    const {isAuthLoading, authError } = useTypedSelector(state => state.auth)
+    //const {isAuthLoading, authError } = useTypedSelector(state => state.auth)
 
     const { login, setMessage} = useActions()
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
 
-    if(isAuthLoading){
-        return(
-            <MolchatLoader/>
-        )
-    }
+    // if(isAuthLoading){
+    //     return(
+    //         <MolchatLoader/>
+    //     )
+    // }
 
-    if(authError){
-        return(
-            <h1>{authError}</h1>
-        )
-    }
+    // if(authError){
+    //     return(
+    //         <h1>{authError}</h1>
+    //     )
+    // }
 
     return (
         <MolchatForm>
@@ -48,7 +47,7 @@ const LoginForm: FC = () => {
             <MolchatButton onClick={() => {
                 login(email, password)
                 setMessage('Авторизация прошла успешно')
-                //setTimeout(() => clearMessage(), 2000)
+                setTimeout(() => clearMessage(), 2000)
             }}>
                 <p>Войти</p>
             </MolchatButton>

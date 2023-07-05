@@ -10,21 +10,21 @@ const RoomList = () => {
     const { roomListIsLoading, users, roomListError } = useTypedSelector(state => state.roomList)
     const { fetchRooms } = useActions()
 
-    useEffect(()=>{
-        fetchRooms()
-    },[])
+    // useEffect(()=>{
+    //     fetchRooms()
+    // },[])
 
-    if (roomListIsLoading) {
-        return (
-            <MolchatLoader />
-        )
-    }
+    // if (roomListIsLoading) {
+    //     return (
+    //         <MolchatLoader />
+    //     )
+    // }
 
-    if (roomListError) {
-        return (
-            <h1>{roomListError}</h1>
-        )
-    }
+    // if (roomListError) {
+    //     return (
+    //         <h1>{roomListError}</h1>
+    //     )
+    // }
 
     return (
         <div>

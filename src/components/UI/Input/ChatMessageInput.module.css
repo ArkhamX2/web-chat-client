@@ -1,0 +1,18 @@
+   .ChatInput {
+           background-color: var(--rt-transparent-5);
+           margin: 5px;
+           padding: 20px 12px 4px;
+           height: 48px;
+           outline: none;
+           border: none;
+           font-size: 1.2rem;
+           width: 100%;
+           color: var(--rt-main-text);
+           border-radius: 8px;
+           /*добавлено*/
+           text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;
+           display: flex;
+           word-wrap: break-word;
+   }

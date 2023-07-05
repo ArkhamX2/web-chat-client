@@ -2,7 +2,6 @@ import { Dispatch } from "react"
 import { AuthAction, AuthActionTypes } from "../../models/IAuth"
 import AuthService from "../../API/services/AuthService"
 
-
 export const signup = (name: string, password: string): any => {
     return async (dispatch: Dispatch<AuthAction>) => {
         try {

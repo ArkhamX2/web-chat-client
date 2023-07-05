@@ -5,24 +5,44 @@ import classes from './ChatMessage.module.css'
 
 interface ChatMessageProps {
     message: IChatMessage,
-    user: IUser|null
+    user: IUser | null
 }
+{/* <div class="message">
+    <div class="message__outer">
+        <div class="message__avatar"></div>
+        <div class="message__inner">
+            <div class="message__bubble"></div>
+            <div class="message__actions"></div>
+            <div class="message__spacer"></div>
+        </div>
+        <div class="message__status"></div>
+    </div>
+</div> */}
 
 const ChatMessage: FC<ChatMessageProps> = ({ message, user }) => {
     return (
-        <div className=
-            {
-                message.chatMessageSender.id === user?.id
-                    ? classes.myMessage
-                    : classes.othersMessage
-            }>
+        <div className='outer'>
+            {/* inner*/}
+            <div className='inner' style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                <div className=
+                    {
+                        message.chatMessageSender.id === user?.id
+                            ? classes.myMessageBubble
+                            : classes.othersMessageBubble
+                    }>
+                    <p>{message.chatMessageText}</p>
+                </div>
+                <div className='actions'></div>
+                <div className='spacer'></div>
+            </div>
+            <div className='status'></div>
 
             {/* <div>
                 <img src="" alt="" className='sender pic' />
             </div> */}
             <h3 style={{ textDecoration: 'underline' }}>{message.chatMessageSender.username}</h3>
             <div>
-                <p>{message.chatMessageText}</p>
+
                 {/* Див для индикаторов прочтения и времени отправки */}
                 {/*<div> 
                      <img
