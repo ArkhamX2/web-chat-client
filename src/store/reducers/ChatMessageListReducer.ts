@@ -1,15 +1,42 @@
 import { ChatMessageStatus } from "../../models/IChatMessage";
 import { ChatMessageListAction, ChatMessageListActionTypes, IChatMessageList } from "../../models/IChatMessageList"
-import { initialUserState } from "./UserReducer";
+import { IUser } from "../../models/IUser";
 
+const sender:IUser = {
+    id:'1',
+    isUserLoading:false,
+    userError: '',
+    username: 'Алиса'
+}
+
+const recipient:IUser = {
+    id:'1',
+    isUserLoading:false,
+    userError: '',
+    username: 'Иван'
+}
 
 const initialState: IChatMessageList = {
     messages: [
         {
-            chatMessageRecipient:initialUserState,
-            chatMessageSender:initialUserState,
+            chatMessageRecipient:recipient,
+            chatMessageSender:sender,
             chatMessageStatus: ChatMessageStatus.SEND, 
-            chatMessageText:'Hello', 
+            chatMessageText:'Привет!', 
+            chatMessageTimestamp: new Date(),
+        },
+        {
+            chatMessageRecipient:sender,
+            chatMessageSender:recipient,
+            chatMessageStatus: ChatMessageStatus.SEND, 
+            chatMessageText:'Привет,привет!', 
+            chatMessageTimestamp: new Date(),
+        },
+        {
+            chatMessageRecipient:recipient,
+            chatMessageSender:sender,
+            chatMessageStatus: ChatMessageStatus.SEND, 
+            chatMessageText:'Как дела?', 
             chatMessageTimestamp: new Date(),
         }
 ],
