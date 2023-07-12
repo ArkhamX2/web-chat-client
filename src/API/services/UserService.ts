@@ -3,7 +3,6 @@ import $api from '../index'
 import { UserResponse } from '../../models/response/usersResponce'
 import { IUser } from '../../models/IUser'
 
-
 export default class UserService{
 
     static fetchUsers(): Promise<AxiosResponse<IUser[]>>{       
