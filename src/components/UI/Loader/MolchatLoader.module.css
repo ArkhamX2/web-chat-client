@@ -1,6 +1,9 @@
 .molchatLoader {
     width: 100px;
     height: 100px;
+    position: absolute;
+    top: 40%;
+    right: 47%;
     border-radius: 50%;
     border: 3px dashed var(--rt-orange);
     animation: rotate 1s infinite linear;

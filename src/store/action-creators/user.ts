@@ -3,11 +3,11 @@ import { UserAction, UserActionTypes } from "../../models/IUser";
 import UserService from "../../API/services/UserService";
 
 
-export const fetchUser = (): any => {
+export const fetchUser = (userId:string): any => {
     return async (dispatch: Dispatch<UserAction>) => {
         try {
             dispatch({ type: UserActionTypes.FETCH_USER})
-            const response = await UserService.fetchUser();   
+            const response = await UserService.fetchUser(userId);   
 
             dispatch({ type: UserActionTypes.FETCH_USER_SUCCESS, payload: response.data.name })
        

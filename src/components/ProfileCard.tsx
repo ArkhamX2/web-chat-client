@@ -1,4 +1,6 @@
+import { COLORS } from '../constants/styled-components/colors'
 import { useTypedSelector } from '../hooks/useTypedSelector'
+import MolchatForm from './UI/Form/MolchatForm'
 import MolchatLoader from './UI/Loader/MolchatLoader'
 
 const ProfileCard = () => {
@@ -17,15 +19,29 @@ const ProfileCard = () => {
     }
 
 
-        //Сделать модальное окно с изменением имени пользователя, которое появляется при нажатии на имя пользователя
+    //Сделать модальное окно с изменением имени пользователя, которое появляется при нажатии на имя пользователя
     return (
-        <div>
-            <img src="user-profile-picture" alt="" />
-            <div>
-                <p>Имя</p>
-                <p>{username}</p>
+        <MolchatForm>
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignContent: 'center' }}>
+                <div style={{
+                    display: 'flex', height: '200px', width: '200px', backgroundColor: COLORS.white_40, borderRadius: '50%', alignSelf: 'center',
+                    overflow: 'hidden', border:'3px solid gray'
+                }}>
+                    <img src="src/images/Светлая память.jpg" alt="Аватар - легенда бо Аанге" />
+                </div>
+                <span style={{
+                    backgroundColor: COLORS.white_5, alignItems: 'center', textAlign: 'center', marginTop: '10px', padding: '5px'
+                    , justifyContent: 'space-between', border: '3px solid gray', borderRadius:'8px'
+                }}>
+                   <p style={{ margin: '5px' }}>Имя: {username}</p>
+                </span>
+                
+
             </div>
-        </div>
+            <img src="user-profile-picture" alt="" />
+
+        </MolchatForm>
+
     )
 }
 

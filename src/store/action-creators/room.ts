@@ -1,15 +1,26 @@
 import { Dispatch } from "react"
-import { RoomAction, RoomActionTypes } from "../../models/IRoom";
+import { IRoom, RoomAction, RoomActionTypes } from "../../models/IRoom";
 import { IUser } from "../../models/IUser";
 import RoomService from "../../API/services/RoomService";
 
+export const setRoom = (room: IRoom): any => {
+    return async (dispatch: Dispatch<RoomAction>) => {
+        try {
+            dispatch({ type: RoomActionTypes.SET_ROOM_SUCCESS, payload: room})
+            return Promise.resolve();
+        } catch (error) {
+            dispatch({ type: RoomActionTypes.SET_ROOM_ERROR, payload: 'Не удалось выбрать чат' })
+            return Promise.reject();
+        }
+    }
+}
 
 export const addUser = (user: IUser): any => {
     return async (dispatch: Dispatch<RoomAction>) => {
         try {
             const response = await RoomService.addUser(user);   
 
-            dispatch({ type: RoomActionTypes.ADD_USER, payload: response.data.roomMembers })
+            dispatch({ type: RoomActionTypes.ADD_USER, payload: [response.data.recipient, response.data.sender] })
        
             return Promise.resolve();
         } catch (error) {
@@ -25,7 +36,7 @@ export const deleteUser = (user: IUser): any => {
         try {
             const response = await RoomService.deleteUser(user);   
 
-            dispatch({ type: RoomActionTypes.DELETE_USER, payload: response.data.roomMembers })
+            dispatch({ type: RoomActionTypes.DELETE_USER, payload: [response.data.recipient, response.data.sender] })
        
             return Promise.resolve();
         } catch (error) {

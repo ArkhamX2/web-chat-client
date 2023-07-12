@@ -1,6 +1,5 @@
 import MolchatButton from '../button/MolchatButton'
 import { useActions } from '../../../hooks/useActions';
-import UserService from '../../../API/services/UserService';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import MolchatNotification from '../Notification/MolchatNotification';
 import MolchatNavlink from '../Navlink/MolchatNavlink';
@@ -17,9 +16,12 @@ const Navbar = () => {
             <p></p>
         )
     }
-
+    /*дивы для каждого элемента это враперы, которые будут подсвечиваться*/
     return (
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <div style={{
+            display: 'flex', flexDirection: 'row', backgroundColor: '#b6babb', position: 'sticky', top: '0', zIndex: '2',
+            justifyContent: 'flex-start'
+        }}>
 
             {text
                 ? <MolchatNotification text={text} />
@@ -31,27 +33,28 @@ const Navbar = () => {
                 <MolchatNavlink destination='/rooms' text='Чаты '>
                     <img src='src/images/chatIcon.png' width='60%' style={{ marginTop: 5 }} alt='Chat' />
                 </MolchatNavlink>
+
+
                 <MolchatNavlink destination='/profile' text='Профиль'>
                     <img src='src/images/profileIcon.png' width='60%' style={{ marginTop: 5 }} alt='Profile' />
                 </MolchatNavlink>
+
+
                 <MolchatNavlink destination='/chat-room' text='1Чат' />
+
             </div>
 
-            <button style={{ display: "none" }}
-                onClick={() => {
-                    const response = UserService.fetchUser();
-                    console.log(response);
-                }}
-            >GET USERS TEST BUTTON</button>
-
-
-            <MolchatButton onClick={() => {
+            <div style={{position:'absolute', right:'0'}}>
+                <MolchatButton onClick={() => {
                 logout()
                 setMessage('Выход прошел успешно')
                 setTimeout(() => clearMessage(), 2000)
             }}>
                 <p>Выйти</p>
             </MolchatButton>
+            </div>
+            
+
         </div>
     )
 }

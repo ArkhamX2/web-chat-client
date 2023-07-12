@@ -1,10 +1,12 @@
 import { ChatMessageStatus, IChatMessage,ChatMessageAction,ChatMessageActionTypes } from "../../models/IChatMessage";
+import { initialUserState } from "./UserReducer";
 
 const initialState: IChatMessage = {
-    chatMessageSender: {username: '', isUserLoading: false, userError:''},
+    chatMessageRecipient: initialUserState,
+    chatMessageSender: initialUserState,
     chatMessageStatus: ChatMessageStatus.SEND,
     chatMessageText: '',
-    chatMessageTimestamp: ''
+    chatMessageTimestamp: new Date(),
 }
 
 export const ChatMessageReducer = (state = initialState, action: ChatMessageAction): IChatMessage => {

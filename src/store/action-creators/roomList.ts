@@ -2,15 +2,16 @@ import { Dispatch } from "react"
 import { RoomListAction, RoomListActionTypes } from "../../models/IRoomList"
 import RoomListService from "../../API/services/RoomListService"
 import { IUser } from "../../models/IUser"
-
+//import { usersToRooms } from "../../utils/UsersToRooms"
+import UserService from "../../API/services/UserService"
 
 export const fetchRooms = (): any => {
     return async (dispatch: Dispatch<RoomListAction>) => {
         try {
             dispatch({ type: RoomListActionTypes.FETCH_ROOM_LIST })
 
-            const response = await RoomListService.fetchRooms();            
-            dispatch({ type: RoomListActionTypes.SUCCESS_FETCH_ROOM_LIST, payload: response.data.rooms })
+            const response = await UserService.fetchUsers();            
+            dispatch({ type: RoomListActionTypes.SUCCESS_FETCH_ROOM_LIST, payload: response.data })
             return Promise.resolve();
         } catch (error) {
             dispatch({ type: RoomListActionTypes.ERROR_ROOM_LIST, payload: 'Не удалось загрузить чаты' })

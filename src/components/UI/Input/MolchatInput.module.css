@@ -10,8 +10,7 @@
 .molchatInput {
     height: var(--input-height);
     padding: var(--input-padding);
-    background-color: var(--rt-transparent-5);
-    position: relative;
+    background-color: var(--rt-transparent-5);    
     outline: none;
     border: none;
     font-size: 1rem;
